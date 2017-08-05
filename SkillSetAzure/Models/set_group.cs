@@ -6,6 +6,7 @@ namespace SkillSetAzure.Models
 {
     public class set_group
     {
+        [Key]
         public string grp_id { get; set; }
         public string grp_name { get; set; }
         public string grp_desc { get; set; }

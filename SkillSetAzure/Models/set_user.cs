@@ -6,6 +6,7 @@ namespace SkillSetAzure.Models
 {
     public class set_user
     {
+        [Key]
         public string user_id { get; set; }
         public string user_name { get; set; }
         public string user_last_name { get; set; }

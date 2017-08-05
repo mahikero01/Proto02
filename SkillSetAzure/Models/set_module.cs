@@ -6,6 +6,7 @@ namespace SkillSetAzure.Models
 {
     public class set_module
     {
+        [Key]
         public string mod_id { get; set; }
         public string mod_name { get; set; }
         public string mod_desc { get; set; }

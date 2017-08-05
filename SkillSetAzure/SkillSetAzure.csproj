@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -148,11 +156,33 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AssociateDepartmentSkillsetsController.cs" />
+    <Compile Include="Controllers\AssociatesController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
+    <Compile Include="Controllers\DepartmentSkillsetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\set_groupController.cs" />
+    <Compile Include="Controllers\set_group_accessController.cs" />
+    <Compile Include="Controllers\set_moduleController.cs" />
+    <Compile Include="Controllers\set_userController.cs" />
+    <Compile Include="Controllers\set_user_accessController.cs" />
+    <Compile Include="Controllers\SkillsetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\set_group.cs" />
+    <Compile Include="Models\set_group_access.cs" />
+    <Compile Include="Models\set_module.cs" />
+    <Compile Include="Models\set_user.cs" />
+    <Compile Include="Models\set_user_access.cs" />
+    <Compile Include="Models\SkillSetAzureContext.cs" />
+    <Compile Include="Models\SS_AssociateDepartmentSkillsets.cs" />
+    <Compile Include="Models\SS_Associates.cs" />
+    <Compile Include="Models\SS_Departments.cs" />
+    <Compile Include="Models\SS_DepartmentSkillsets.cs" />
+    <Compile Include="Models\SS_Locations.cs" />
+    <Compile Include="Models\SS_Skillsets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

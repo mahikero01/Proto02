@@ -16,15 +16,15 @@ namespace SkillSetAzure.Controllers
         public CurrentUser Get()
         {
             //withDomain
-            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
             //username only
-            string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
-            int index = currentDomainUser.IndexOf("\\" + currentUsername);
+            //string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
+            //int index = currentDomainUser.IndexOf("\\" + currentUsername);
 
             CurrentUser cu = new CurrentUser
             {
                 id = 1,
-                UserName = currentUsername
+                UserName = "sarmife"
             };
 
             return cu;

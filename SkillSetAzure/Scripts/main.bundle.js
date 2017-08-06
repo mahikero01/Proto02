@@ -63,7 +63,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("./src/app/app.component.html"),
         styles: [__webpack_require__("./src/app/app.component.css")]
@@ -92,6 +92,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__mod_search_search_module__ = __webpack_require__("./src/app/mod_search/search.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__mod_maintenance_maintenance_module__ = __webpack_require__("./src/app/mod_maintenance/maintenance.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__mod_common_common_comp_module__ = __webpack_require__("./src/app/mod_common/common_comp.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__mod_test_export_mod_test_export_module__ = __webpack_require__("./src/app/mod-test-export/mod-test-export.module.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -115,23 +116,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 //modules
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         //components area
         declarations: [
             __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */], __WEBPACK_IMPORTED_MODULE_5__com_layout_admin_container_component__["a" /* ContainerComponent */], __WEBPACK_IMPORTED_MODULE_6__com_layout_common_user_container_component__["a" /* UserComponent */]
         ],
         //modules area
         imports: [
-            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["BrowserModule"], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
             //component's module
-            __WEBPACK_IMPORTED_MODULE_12__mod_common_common_comp_module__["a" /* CommonCompModule */], __WEBPACK_IMPORTED_MODULE_9__mod_skillset_skillset_module__["a" /* SkillsetModule */], __WEBPACK_IMPORTED_MODULE_11__mod_maintenance_maintenance_module__["a" /* MaintenanceModule */], __WEBPACK_IMPORTED_MODULE_10__mod_search_search_module__["a" /* SearchModule */],
-            __WEBPACK_IMPORTED_MODULE_8__app_routing__["a" /* AppRouting */]
+            __WEBPACK_IMPORTED_MODULE_12__mod_common_common_comp_module__["a" /* CommonCompModule */],
+            __WEBPACK_IMPORTED_MODULE_9__mod_skillset_skillset_module__["a" /* SkillsetModule */],
+            __WEBPACK_IMPORTED_MODULE_11__mod_maintenance_maintenance_module__["a" /* MaintenanceModule */],
+            __WEBPACK_IMPORTED_MODULE_10__mod_search_search_module__["a" /* SearchModule */],
+            __WEBPACK_IMPORTED_MODULE_8__app_routing__["a" /* AppRouting */],
+            __WEBPACK_IMPORTED_MODULE_13__mod_test_export_mod_test_export_module__["a" /* TestExportModule */]
         ],
         //services area
         providers: [],
@@ -168,7 +174,7 @@ var AppRouting = (function () {
     return AppRouting;
 }());
 AppRouting = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(appRoutes, { useHash: true })],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -216,8 +222,9 @@ var DepartmentSkillsetDBO = (function () {
 
 "use strict";
 /* unused harmony export AssociateSkillsets */
+/* unused harmony export AssociateDepartmentSkillsetRpt */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return AssociateDepartmentSkillset; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DepartmentSkillsets; });
+/* unused harmony export DepartmentSkillsets */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Associate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Department; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Skillset; });
@@ -226,7 +233,9 @@ var DepartmentSkillsetDBO = (function () {
 /* unused harmony export Set_Group */
 /* unused harmony export Set_User */
 /* unused harmony export User */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DepartmentSkillsets1; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectedSkillset; });
+/* unused harmony export ng2Items */
 //THIS SHOULD BE REMOVEDBEFORE DEPLOYEMENT IN LIVE
 var AssociateSkillsets = (function () {
     function AssociateSkillsets(AssociateSkillsetID, //primary key
@@ -236,6 +245,18 @@ var AssociateSkillsets = (function () {
         this.SkillsetID = SkillsetID;
     }
     return AssociateSkillsets;
+}());
+
+/* reports - eros - */
+var AssociateDepartmentSkillsetRpt = (function () {
+    function AssociateDepartmentSkillsetRpt(AssociateDepartmentSkillsetID, //primary key
+        AssociateID, DepartmentSkillsetID, Department) {
+        this.AssociateDepartmentSkillsetID = AssociateDepartmentSkillsetID;
+        this.AssociateID = AssociateID;
+        this.DepartmentSkillsetID = DepartmentSkillsetID;
+        this.Department = Department;
+    }
+    return AssociateDepartmentSkillsetRpt;
 }());
 
 /*AssociateViews*/
@@ -367,6 +388,17 @@ var User = (function () {
     return User;
 }());
 
+/*AssociateViews*/
+var DepartmentSkillsets1 = (function () {
+    function DepartmentSkillsets1(DepartmentSkillsetID, //primary key
+        DepartmentID, SkillsetID) {
+        this.DepartmentSkillsetID = DepartmentSkillsetID;
+        this.DepartmentID = DepartmentID;
+        this.SkillsetID = SkillsetID;
+    }
+    return DepartmentSkillsets1;
+}());
+
 //extra entity
 var SelectedSkillset = (function () {
     function SelectedSkillset(departmentSkillset, IsSelected, SkillsetDescr) {
@@ -377,7 +409,51 @@ var SelectedSkillset = (function () {
     return SelectedSkillset;
 }());
 
+var ng2Items = (function () {
+    function ng2Items(text, id) {
+        this.text = text;
+        this.id = id;
+    }
+    return ng2Items;
+}());
+
 //# sourceMappingURL=entities.js.map
+
+/***/ }),
+
+/***/ "./src/app/com_entities/mck_testexport.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export Person */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PERSONS; });
+var Person = (function () {
+    function Person() {
+    }
+    return Person;
+}());
+
+var PERSONS = [
+    {
+        id: 1,
+        name: 'Thomas',
+        surname: 'Novicky',
+        age: 21
+    },
+    {
+        id: 2,
+        name: 'Adam',
+        surname: 'Tracz',
+        age: 12
+    },
+    {
+        id: 3,
+        name: 'Steve',
+        surname: 'Laski',
+        age: 38
+    }
+];
+//# sourceMappingURL=mck_testexport.js.map
 
 /***/ }),
 
@@ -409,7 +485,7 @@ var ContainerComponent = (function () {
     return ContainerComponent;
 }());
 ContainerComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'main-container',
         template: "\n    <div class=\"navbar navbar-blue_2 navbar-fixed-top\">\n        <div class=\"container-fluid\">\n            <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand\" href=\"Index.html\">Skillset Database</a>\n            </div>\n            <div class=\"navbar-collapse collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li><a href=\"#p1\" data-toggle=\"tab\" (click)=\"routeOnly('search')\" class=\"lnk-search\"><i class=\"fa fa-search\"></i>&nbsp;Search</a></li>\n                    <li class=\"active\"><a href=\"#p2\" (click)=\"routeOnly('skillset')\" data-toggle=\"tab\" class=\"lnk-skillset\"><i class=\"fa fa-cogs\"></i>&nbsp;Skillset</a></li>\n                    <li><a href=\"#p3\" data-toggle=\"tab\" (click)=\"routeOnly('maintenance')\"  class=\"lnk-maintenance\"><i class=\"fa fa-wrench\"></i>&nbsp;Maintenance</a></li>\n                </ul>\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li><a href=\"#\"><i class=\"fa fa-user-circle\"></i>&nbsp;Hello, Albert Rick!</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-body\">\n      <router-outlet></router-outlet>\n    </div>\n  "
     }),
@@ -449,7 +525,7 @@ var UserComponent = (function () {
     return UserComponent;
 }());
 UserComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'user-container',
         template: "\n    <div class=\"navbar navbar-blue_2 navbar-fixed-top\">\n        <div class=\"container-fluid\">\n            <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-collapse\">\n                    <span class=\"icon-bar\"></span>\n                </button>\n                <a class=\"navbar-brand\" href=\"Index.html\">Skillset Database</a>\n            </div>\n            <div class=\"navbar-collapse collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li class=\"active\"><a href=\"#p2\" (click)=\"routeOnly('skillset')\" data-toggle=\"tab\" class=\"lnk-skillset\"><i class=\"fa fa-cogs\"></i>&nbsp;Skillset</a></li>\n                </ul>\n                <ul class=\"nav navbar-nav navbar-right\">\n                    <li><a href=\"#\"><i class=\"fa fa-user-circle\"></i>&nbsp;Hello, Eros Niko!</a></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"main-body\">\n      <router-outlet></router-outlet>\n    </div>\n  "
     }),
@@ -533,7 +609,7 @@ var AssociateDepartmentSkillsetsSvc = (function () {
     return AssociateDepartmentSkillsetsSvc;
 }());
 AssociateDepartmentSkillsetsSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], AssociateDepartmentSkillsetsSvc);
 
@@ -614,7 +690,7 @@ var AssociateSvc = (function () {
     return AssociateSvc;
 }());
 AssociateSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], AssociateSvc);
 
@@ -664,7 +740,7 @@ var CurrentUserSvc = (function () {
     return CurrentUserSvc;
 }());
 CurrentUserSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], CurrentUserSvc);
 
@@ -745,7 +821,7 @@ var DepartmentSvc = (function () {
     return DepartmentSvc;
 }());
 DepartmentSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], DepartmentSvc);
 
@@ -826,12 +902,62 @@ var DepartmentSkillsetsSvc = (function () {
     return DepartmentSkillsetsSvc;
 }());
 DepartmentSkillsetsSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], DepartmentSkillsetsSvc);
 
 var _a;
 //# sourceMappingURL=dept_skillset.svc.js.map
+
+/***/ }),
+
+/***/ "./src/app/com_services/excel.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_file_saver__ = __webpack_require__("./node_modules/file-saver/FileSaver.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_file_saver___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_file_saver__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_xlsx__ = __webpack_require__("./node_modules/xlsx/xlsx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_xlsx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_xlsx__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExcelService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+var EXCEL_EXTENSION = '.xlsx';
+var ExcelService = (function () {
+    function ExcelService() {
+    }
+    ExcelService.prototype.exportAsExcelFile = function (json, excelFileName) {
+        var worksheet = __WEBPACK_IMPORTED_MODULE_2_xlsx__["utils"].json_to_sheet(json);
+        var workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+        var excelBuffer = __WEBPACK_IMPORTED_MODULE_2_xlsx__["write"](workbook, { bookType: 'xlsx', type: 'buffer' });
+        this.saveAsExcelFile(excelBuffer, excelFileName);
+    };
+    ExcelService.prototype.saveAsExcelFile = function (buffer, fileName) {
+        var data = new Blob([buffer], {
+            type: EXCEL_TYPE
+        });
+        __WEBPACK_IMPORTED_MODULE_1_file_saver__["saveAs"](data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
+    };
+    return ExcelService;
+}());
+ExcelService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], ExcelService);
+
+//# sourceMappingURL=excel.service.js.map
 
 /***/ }),
 
@@ -907,7 +1033,7 @@ var LocationSvc = (function () {
     return LocationSvc;
 }());
 LocationSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], LocationSvc);
 
@@ -988,7 +1114,7 @@ var Set_UserSvc = (function () {
     return Set_UserSvc;
 }());
 Set_UserSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], Set_UserSvc);
 
@@ -1069,12 +1195,173 @@ var SkillsetSvc = (function () {
     return SkillsetSvc;
 }());
 SkillsetSvc = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* Injectable */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* Http */]) === "function" && _a || Object])
 ], SkillsetSvc);
 
 var _a;
 //# sourceMappingURL=skillset.svc.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod-test-export/mod-test-export.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/mod-test-export/mod-test-export.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\" style=\"margin-top: 20px;\">\r\n  <div class=\"panel panel-default\">\r\n    <div class=\"panel-heading\">All persons data</div>\r\n    <table class=\"table\" *ngIf=\"persons\">\r\n      <thead>\r\n        <tr>\r\n          <th>Id</th>\r\n          <th>Name</th>\r\n          <th>Surname</th>\r\n          <th>Age</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let person of persons\">\r\n          <td>{{person.id}}</td>\r\n          <td>{{person.name}}</td>\r\n          <td>{{person.surname}}</td>\r\n          <td>{{person.age}}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <button (click)=\"exportToExcel()\" class=\"btn btn-primary\">Export to excel</button>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/mod-test-export/mod-test-export.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_entities_mck_testexport__ = __webpack_require__("./src/app/com_entities/mck_testexport.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_services_excel_service__ = __webpack_require__("./src/app/com_services/excel.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModTestExportComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ModTestExportComponent = (function () {
+    function ModTestExportComponent(excelService) {
+        this.excelService = excelService;
+        this.excelService = excelService;
+    }
+    ModTestExportComponent.prototype.ngOnInit = function () {
+        this.persons = __WEBPACK_IMPORTED_MODULE_1__com_entities_mck_testexport__["a" /* PERSONS */];
+    };
+    ModTestExportComponent.prototype.exportToExcel = function (event) {
+        this.excelService.exportAsExcelFile(this.persons, 'personAko');
+    };
+    return ModTestExportComponent;
+}());
+ModTestExportComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'test-export',
+        template: __webpack_require__("./src/app/mod-test-export/mod-test-export.component.html"),
+        styles: [__webpack_require__("./src/app/mod-test-export/mod-test-export.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_excel_service__["a" /* ExcelService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_excel_service__["a" /* ExcelService */]) === "function" && _a || Object])
+], ModTestExportComponent);
+
+var _a;
+//# sourceMappingURL=mod-test-export.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod-test-export/mod-test-export.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mod_test_export_component__ = __webpack_require__("./src/app/mod-test-export/mod-test-export.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("./node_modules/@angular/common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mod_test_export_routing__ = __webpack_require__("./src/app/mod-test-export/mod-test-export.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_services_excel_service__ = __webpack_require__("./src/app/com_services/excel.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TestExportModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+var TestExportModule = (function () {
+    function TestExportModule() {
+    }
+    return TestExportModule;
+}());
+TestExportModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_1__mod_test_export_component__["a" /* ModTestExportComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_2__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["BrowserModule"],
+            __WEBPACK_IMPORTED_MODULE_4__mod_test_export_routing__["a" /* ModTestExportRouting */]
+        ],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_5__com_services_excel_service__["a" /* ExcelService */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_1__mod_test_export_component__["a" /* ModTestExportComponent */]
+        ]
+    })
+], TestExportModule);
+
+//# sourceMappingURL=mod-test-export.module.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod-test-export/mod-test-export.routing.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mod_test_export_component__ = __webpack_require__("./src/app/mod-test-export/mod-test-export.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModTestExportRouting; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+//component
+
+var routes = [
+    //paths
+    { path: 'testexport', component: __WEBPACK_IMPORTED_MODULE_2__mod_test_export_component__["a" /* ModTestExportComponent */] },
+];
+var ModTestExportRouting = (function () {
+    function ModTestExportRouting() {
+    }
+    return ModTestExportRouting;
+}());
+ModTestExportRouting = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
+    })
+], ModTestExportRouting);
+
+//# sourceMappingURL=mod-test-export.routing.js.map
 
 /***/ }),
 
@@ -1112,7 +1399,7 @@ var CommonCompModule = (function () {
     return CommonCompModule;
 }());
 CommonCompModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         //components area
         declarations: [
             __WEBPACK_IMPORTED_MODULE_5__savebar_component__["a" /* SaveBarComponent */],
@@ -1122,7 +1409,7 @@ CommonCompModule = __decorate([
         //modules area
         imports: [
             //angular modules
-            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["BrowserModule"], __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */],
         ],
         //services area
         providers: [],
@@ -1161,7 +1448,7 @@ var ModalConfirmComponent = (function () {
     return ModalConfirmComponent;
 }());
 ModalConfirmComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'no-access',
         template: "\n  <div class=\"modal fade\" role=\"dialog\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n                <h4><i class=\"fa fa-question-circle\"></i>&nbsp;Message</h4>\n            </div>\n            <div class=\"modal-body\">\n                <p>Question here...</p>\n            </div>\n            <div class=\"modal-footer\">\n                <div class=\"btn-group pull-right\" role=\"group\">\n                    <a id=\"modal_yes\" href=\"#\" class=\"btn btn-primary btn-sm\" data-dismiss=\"modal\">\n                        <i class=\"fa fa-check\"></i>&nbsp;Yes\n                    </a>\n                    <a id=\"modal_no\" href=\"#\" class=\"btn btn-default btn-sm\" data-dismiss=\"modal\">\n                        No\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n  </div>\n    ",
     }),
@@ -1194,7 +1481,7 @@ var NoAccessComponent = (function () {
     return NoAccessComponent;
 }());
 NoAccessComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'no-access',
         template: "\n    <div class=\"col-md-12\">\n      <div class=\"col-md-8 col-md-offset-2\">\n          <div class=\"bs-callout bs-callout-danger\" style=\"background-color:white;\">\n              <h4><i class=\"fa fa-warning\"></i> Oops! You are not authorized to view this page.</h4>\n              <p>The page you are trying to access is restricted due to a security rule.</p>\n              <p>If you think this is an error, please contact site administrator.</p>\n          </div>\n      </div>\n    </div>\n    ",
     }),
@@ -1227,30 +1514,70 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 
 var SaveBarComponent = (function () {
     function SaveBarComponent() {
-        this.triggerParentFunc = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* EventEmitter */]();
+        this.triggerParentFunc = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     SaveBarComponent.prototype.buttonClicked = function () {
-        this.triggerParentFunc.emit();
-        if (this.buttonMode == 0)
-            alert("New Record has been successfully added.");
-        else
-            alert("Existing Record has been successfully updated.");
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.triggerParentFunc.emit()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     return SaveBarComponent;
 }());
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Input */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Number)
 ], SaveBarComponent.prototype, "buttonMode", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], SaveBarComponent.prototype, "triggerParentFunc", void 0);
 SaveBarComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'save-bar',
         template: __webpack_require__("./src/app/mod_common/savebar.component.html"),
     })
@@ -1263,7 +1590,7 @@ SaveBarComponent = __decorate([
 /***/ "./src/app/mod_maintenance/associate/vw_associate.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"tab-content\">\r\n    <div id=\"asc_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#asc_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Associate Id</th>-->\r\n                                <th>UserName</th>\r\n                                <th>Phone Number</th>\r\n                                <th>VPN Capable</th>\r\n                                <th>Department</th>\r\n                                <th>Location</th>\r\n                                <th>Updated On</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let x of associates\">\r\n                                <!--<td>{{x.AssociateID}}</td>-->\r\n                                <td>{{getFullName(x.UserName)}}</td>\r\n                                <td>{{x.PhoneNumber}}</td>\r\n                                <td>{{getStatus(x.VPN)}}</td>\r\n                                <td>{{getDepartmentName(x.DepartmentID)}}</td>\r\n                                <td>{{getLocationName(x.LocationID)}}</td>\r\n                                <td>{{x.UpdatedOn | date: 'dd/MM/yyyy'}}</td>\r\n                                <td>{{getStatus(x.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(x)\" class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#asc_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(x)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"asc_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#asc_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"mode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"mode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Associate Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input [(ngModel)]=\"associate.AssociateID\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Full Name</label>\r\n                <div class=\"col-md-4\">\r\n                    <select class=\"form-control input-sm\" [(ngModel)]=\"associate.UserName\">\r\n                        <option *ngFor=\"let x of getUnusedUsers()\" [value]=\"x.user_name\"> {{x.user_first_name+\" \" +x.user_last_name}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Username</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UserName + ' - ' +getFullName(associate.UserName) }}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Phone Number</label>\r\n                <div class=\"col-md-4\">\r\n                    <input maxlength=\"20\" [(ngModel)]=\"associate.PhoneNumber\" type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">VPN Capable</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.VPN\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.DepartmentID\" class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of getActiveDepartments()\" [value]=\"x.DepartmentID\"> {{x.DepartmentDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.LocationID\" class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of getActiveLocations()\" [value]=\"x.LocationID\"> {{x.LocationDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Updated On</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UpdatedOn | date: 'dd/MM/yyyy'}}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n           <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveAssociate()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"tab-content\">\r\n    <div id=\"asc_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#asc_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Associate Id</th>-->\r\n                                <th>Name</th>\r\n                                <th>Phone Number</th>\r\n                                <th>VPN Capable</th>\r\n                                <th>Department</th>\r\n                                <th>Location</th>\r\n                                <th>Updated On</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let x of associates\">\r\n                                <!--<td>{{x.AssociateID}}</td>-->\r\n                                <td>{{getFullName(x.UserName)}}</td>\r\n                                <td>{{x.PhoneNumber}}</td>\r\n                                <td>{{getStatus(x.VPN)}}</td>\r\n                                <td>{{getDepartmentName(x.DepartmentID)}}</td>\r\n                                <td>{{getLocationName(x.LocationID)}}</td>\r\n                                <td>{{x.UpdatedOn | date: 'dd/MM/yyyy'}}</td>\r\n                                <td>{{getStatus(x.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(x)\" class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#asc_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(x)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"asc_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#asc_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"mode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"mode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <!--<div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Associate Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input [(ngModel)]=\"associate.AssociateID\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />-->\r\n            <div class=\"row\" *ngIf=\"mode==0\">\r\n                <label class=\"col-md-2 control-label\">Full Name</label>\r\n                <div class=\"col-md-4\">\r\n                    <select class=\"form-control input-sm\" [(ngModel)]=\"associate.UserName\">\r\n                        <option *ngFor=\"let x of getUnusedUsers()\" [value]=\"x.user_name\"> {{x.user_first_name+\" \" +x.user_last_name}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br *ngIf=\"mode==0\"/>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Username</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UserName + ' - ' +getFullName(associate.UserName) }}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Phone Number</label>\r\n                <div class=\"col-md-4\">\r\n                    <input maxlength=\"20\" [(ngModel)]=\"associate.PhoneNumber\" type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">VPN Capable</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.VPN\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.DepartmentID\" class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of getActiveDepartments()\" [value]=\"x.DepartmentID\"> {{x.DepartmentDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.LocationID\" class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of getActiveLocations()\" [value]=\"x.LocationID\"> {{x.LocationDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Updated On</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UpdatedOn | date: 'dd/MM/yyyy'}}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n           <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveAssociate()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1426,24 +1753,40 @@ var VWAssociateComponent = (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        if (!this.entryValidation()) return [3 /*break*/, 5];
                         this.associate.UpdatedOn = new Date();
                         if (!(this.mode == 0)) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.associateSvc.postAssociate(this.associate)];
                     case 1:
-                        _a = _b.sent();
+                        _a = (_b.sent(),
+                            alert("New Record has been successfully added."));
                         return [3 /*break*/, 4];
                     case 2: return [4 /*yield*/, this.associateSvc.putAssociate(this.associate)];
                     case 3:
-                        _a = _b.sent();
+                        _a = (_b.sent(),
+                            alert("Record has been successfully updated."));
                         _b.label = 4;
                     case 4:
                         _a;
                         document.getElementById("btnGoBack").click();
                         this.goBack();
-                        return [2 /*return*/];
+                        _b.label = 5;
+                    case 5: return [2 /*return*/];
                 }
             });
         });
+    };
+    VWAssociateComponent.prototype.entryValidation = function () {
+        var _this = this;
+        var msg = '';
+        var tempDept = this.getActiveDepartments();
+        var tempLoc = this.getActiveLocations();
+        tempDept = tempDept.filter(function (x) { return x.DepartmentID == _this.associate.DepartmentID; });
+        tempLoc = tempLoc.filter(function (x) { return x.LocationID == _this.associate.LocationID; });
+        tempDept == null || tempDept.length == 0 ? msg += 'Department is Required.\n' : null;
+        tempLoc == null || tempLoc.length == 0 ? msg += 'Location is Required.\n' : null;
+        this.associate.UserName == '' ? msg += 'Name is Required.' : null;
+        return msg == '' ? (true) : (alert(msg), false);
     };
     VWAssociateComponent.prototype.goBack = function () {
         this.mode = 0;
@@ -1452,7 +1795,7 @@ var VWAssociateComponent = (function () {
     return VWAssociateComponent;
 }());
 VWAssociateComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'vw-asssoc',
         template: __webpack_require__("./src/app/mod_maintenance/associate/vw_associate.component.html"),
     }),
@@ -1467,7 +1810,7 @@ var _a, _b, _c, _d;
 /***/ "./src/app/mod_maintenance/department/vw_department.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"tab-content\">\r\n    <div id=\"dep_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" (click)=\"newDetails()\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#dep_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Department Id</th>-->\r\n                                <th>Department Description</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let dept of departments\">\r\n                                <!--<td>{{dept.DepartmentID}}</td>-->\r\n                                <td>{{dept.DepartmentDescr}}</td>\r\n                                <td>{{getStatus(dept.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(dept)\"  class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#dep_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(dept)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"dep_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#dep_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"viewMode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"viewMode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" [(ngModel)]=\"department.DepartmentID\" readonly class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department Description</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" maxlength=\"30\" [(ngModel)]=\"department.DepartmentDescr\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"department.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n          <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveDepartment()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"tab-content\">\r\n    <div id=\"dep_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" (click)=\"newDetails()\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#dep_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Department Id</th>-->\r\n                                <th>Department Description</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let dept of departments\">\r\n                                <!--<td>{{dept.DepartmentID}}</td>-->\r\n                                <td>{{dept.DepartmentDescr}}</td>\r\n                                <td>{{getStatus(dept.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(dept)\"  class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#dep_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(dept)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"dep_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#dep_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"viewMode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"viewMode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <!--<div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" [(ngModel)]=\"department.DepartmentID\" readonly class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />-->\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department Description</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" maxlength=\"30\" [(ngModel)]=\"department.DepartmentDescr\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"department.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n          <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveDepartment()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1477,7 +1820,9 @@ module.exports = "<div class=\"tab-content\">\r\n    <div id=\"dep_default\" cla
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VWDepartmentComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1526,17 +1871,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+
 var VWDepartmentComponent = (function () {
-    function VWDepartmentComponent(deptSvc) {
+    function VWDepartmentComponent(deptSvc, departmentSkillsetSvc, assocDeptSkillsetSvc) {
         this.deptSvc = deptSvc;
+        this.departmentSkillsetSvc = departmentSkillsetSvc;
+        this.assocDeptSkillsetSvc = assocDeptSkillsetSvc;
         this.viewMode = 0;
-        this.department = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["e" /* Department */](0, '', true);
+        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["e" /* Department */](0, '', true);
         this.departments = [];
+        this.departmentSkillsets = [];
+        this.associateDepartmentSkillset = [];
         this.mode = 0;
-        this.getDepartments();
+        this.goBack();
     }
     VWDepartmentComponent.prototype.newDetails = function () {
-        this.department = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["e" /* Department */](0, '', true);
+        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["e" /* Department */](0, '', true);
     };
     VWDepartmentComponent.prototype.editDetails = function (dept) {
         this.viewMode = 1;
@@ -1554,10 +1905,70 @@ var VWDepartmentComponent = (function () {
         this.getDetails(dept);
         this.viewMode = 1;
         this.department.IsActive = false;
+        this.deleteDepartmentSkillset(dept.DepartmentID);
         this.saveDepartment();
+    };
+    //delete departmentSkillset
+    VWDepartmentComponent.prototype.deleteDepartmentSkillset = function (deptID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, deptSkillset;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.departmentSkillsets = this.departmentSkillsets.filter(function (x) { return x.DepartmentID == deptID; });
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < this.departmentSkillsets.length)) return [3 /*break*/, 4];
+                        deptSkillset = this.departmentSkillsets[i];
+                        return [4 /*yield*/, this.departmentSkillsetSvc.DeleteDepartmentSkillset(deptSkillset.DepartmentSkillsetID)];
+                    case 2:
+                        _a.sent();
+                        this.deleteAssociateDepartmentSkillset(deptSkillset.DepartmentSkillsetID);
+                        _a.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        console.log('done deleting departmentSkillset');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //delete assocdeptSkillset
+    VWDepartmentComponent.prototype.deleteAssociateDepartmentSkillset = function (deptSkillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tempAssocDeptSkillset, i, assocDeptSkillset;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        tempAssocDeptSkillset = this.associateDepartmentSkillset.filter(function (x) { return x.DepartmentSkillsetID == deptSkillsetID; });
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < tempAssocDeptSkillset.length)) return [3 /*break*/, 4];
+                        assocDeptSkillset = tempAssocDeptSkillset[i];
+                        return [4 /*yield*/, this.assocDeptSkillsetSvc.DeleteAssociateDeptSkillset(assocDeptSkillset.AssociateDepartmentSkillsetID)];
+                    case 2:
+                        _a.sent();
+                        _a.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        console.log('done deleting associateDepartmentSkillset');
+                        return [2 /*return*/];
+                }
+            });
+        });
     };
     VWDepartmentComponent.prototype.goBack = function () {
         this.mode = 0;
+        this.getDepartments();
+        this.getDepartmentSkillsets();
+        this.getAssociateDepartmentSkillsets();
+        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["e" /* Department */](0, '', true);
     };
     VWDepartmentComponent.prototype.saveDepartment = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -1565,25 +1976,32 @@ var VWDepartmentComponent = (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        if (!this.entryValidation()) return [3 /*break*/, 5];
                         if (!(this.viewMode == 0)) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.deptSvc.postDepartment(this.department)];
                     case 1:
-                        _a = _b.sent();
+                        _a = (_b.sent(),
+                            alert("New Record has been successfully added."));
                         return [3 /*break*/, 4];
                     case 2: return [4 /*yield*/, this.deptSvc.putDepartment(this.department)];
                     case 3:
-                        _a = _b.sent();
+                        _a = (_b.sent(),
+                            alert("Record has been successfully updated."));
                         _b.label = 4;
                     case 4:
                         _a;
                         document.getElementById("btnGoBack").click();
-                        this.getDepartments();
-                        this.department = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["e" /* Department */](0, '', true);
                         this.goBack();
-                        return [2 /*return*/];
+                        _b.label = 5;
+                    case 5: return [2 /*return*/];
                 }
             });
         });
+    };
+    VWDepartmentComponent.prototype.entryValidation = function () {
+        var msg = '';
+        this.department.DepartmentDescr.trim() == '' ? msg += 'Department Description is Required.\n' : null;
+        return msg == '' ? (true) : (alert(msg), false);
     };
     VWDepartmentComponent.prototype.getDepartments = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -1600,17 +2018,47 @@ var VWDepartmentComponent = (function () {
             });
         });
     };
+    VWDepartmentComponent.prototype.getDepartmentSkillsets = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.departmentSkillsetSvc.getDepartmentSkillsets()];
+                    case 1:
+                        _a.departmentSkillsets = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    VWDepartmentComponent.prototype.getAssociateDepartmentSkillsets = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.assocDeptSkillsetSvc.getAssociateDeptSkillsets()];
+                    case 1:
+                        _a.associateDepartmentSkillset = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     return VWDepartmentComponent;
 }());
 VWDepartmentComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'vw-dept',
         template: __webpack_require__("./src/app/mod_maintenance/department/vw_department.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]) === "function" && _c || Object])
 ], VWDepartmentComponent);
 
-var _a;
+var _a, _b, _c;
 //# sourceMappingURL=vw_department.component.js.map
 
 /***/ }),
@@ -1716,9 +2164,9 @@ var VWDepartmentSkillsComponent = (function () {
     VWDepartmentSkillsComponent.prototype.getSkillSets = function (deptID) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
-            var _a, i;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
+            var _a, _b, i;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
                     case 0:
                         //reset checkall
                         this.checkallValue = false;
@@ -1727,12 +2175,19 @@ var VWDepartmentSkillsComponent = (function () {
                         return [4 /*yield*/, this.skillsetSvc.getSkillsets()];
                     case 1:
                         //1. get skillsets
-                        _a.skillsets = _b.sent();
+                        _a.skillsets = _c.sent();
+                        //remove all inactive skillsets
+                        _b = this;
+                        return [4 /*yield*/, this.skillsets.filter(function (x) { return x.IsActive == true; })];
+                    case 2:
+                        //remove all inactive skillsets
+                        _b.skillsets = _c.sent();
                         //clears the checkboxes
                         this.selectedSkillsets = [];
                         //2. loop skillsets to custom array
                         for (i = 0; i < this.skillsets.length; i++) {
-                            this.selectedSkillsets.push(new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["a" /* SelectedSkillset */](new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["b" /* DepartmentSkillsets */](0, deptID, this.skillsets[i].SkillsetID), false, this.skillsets[i].SkillsetDescr));
+                            console.log(deptID + " - " + this.skillsets[i].SkillsetID);
+                            this.selectedSkillsets.push(new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["a" /* SelectedSkillset */](new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["b" /* DepartmentSkillsets1 */](0, deptID, this.skillsets[i].SkillsetID), false, this.skillsets[i].SkillsetDescr));
                         }
                         this.getDepartmentSkillsets(deptID).then(function () {
                             _this.compareSelectedSkillsets();
@@ -1827,7 +2282,9 @@ var VWDepartmentSkillsComponent = (function () {
                     case 7:
                         i++;
                         return [3 /*break*/, 5];
-                    case 8: return [2 /*return*/];
+                    case 8:
+                        alert("Record has been successfully updated.");
+                        return [2 /*return*/];
                 }
             });
         });
@@ -1835,7 +2292,7 @@ var VWDepartmentSkillsComponent = (function () {
     return VWDepartmentSkillsComponent;
 }());
 VWDepartmentSkillsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'vw-dept',
         template: __webpack_require__("./src/app/mod_maintenance/department_skills/vw_department_skills.component.html"),
     }),
@@ -1850,7 +2307,7 @@ var _a, _b, _c;
 /***/ "./src/app/mod_maintenance/location/vw_location.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"tab-content\">\r\n    <div id=\"loc_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" (click)=\"newDetails()\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#loc_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Location Id</th>-->\r\n                                <th>Location Description</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let loc of locations\">\r\n                                <!--<td>{{loc.LocationID}}</td>-->\r\n                                <td>{{loc.LocationDescr}}</td>\r\n                                <td>{{getStatus(loc.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(loc)\"  class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#loc_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(loc)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"loc_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#loc_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                    <span class=\"add\" *ngIf=\"viewMode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                    <span class=\"edit\" *ngIf=\"viewMode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" [(ngModel)]=\"location.LocationID\" readonly class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location Description</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" maxlength=\"15\" [(ngModel)]=\"location.LocationDescr\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\"  [(ngModel)]=\"location.IsActive\"/>\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n          <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveLocation()\"> </save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"tab-content\">\r\n    <div id=\"loc_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" (click)=\"newDetails()\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#loc_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Location Id</th>-->\r\n                                <th>Location Description</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let loc of locations\">\r\n                                <!--<td>{{loc.LocationID}}</td>-->\r\n                                <td>{{loc.LocationDescr}}</td>\r\n                                <td>{{getStatus(loc.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(loc)\"  class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#loc_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(loc)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"loc_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#loc_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                    <span class=\"add\" *ngIf=\"viewMode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                    <span class=\"edit\" *ngIf=\"viewMode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <!--<div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" [(ngModel)]=\"location.LocationID\" readonly class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />-->\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location Description</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" maxlength=\"15\" [(ngModel)]=\"location.LocationDescr\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\"  [(ngModel)]=\"location.IsActive\"/>\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n          <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveLocation()\"> </save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1916,7 +2373,7 @@ var VWLocationComponent = (function () {
         this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["d" /* Location */](0, '', true);
         this.locations = [];
         this.mode = 0;
-        this.getLocations();
+        this.goBack();
     }
     VWLocationComponent.prototype.newDetails = function () {
         this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["d" /* Location */](0, '', true);
@@ -1940,6 +2397,8 @@ var VWLocationComponent = (function () {
         this.saveLocation();
     };
     VWLocationComponent.prototype.goBack = function () {
+        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["d" /* Location */](0, '', true);
+        this.getLocations();
         this.mode = 0;
     };
     VWLocationComponent.prototype.saveLocation = function () {
@@ -1948,25 +2407,31 @@ var VWLocationComponent = (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        if (!this.entryValidation()) return [3 /*break*/, 4];
                         if (!(this.viewMode == 0)) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.locSvc.postLocation(this.location)];
                     case 1:
-                        _a = _b.sent();
-                        return [3 /*break*/, 4];
-                    case 2: return [4 /*yield*/, this.locSvc.putLocation(this.location)];
+                        _a = (_b.sent(),
+                            alert("New Record has been successfully added."));
+                        return [3 /*break*/, 3];
+                    case 2:
+                        _a = (this.locSvc.putLocation(this.location),
+                            alert("Record has been successfully updated."));
+                        _b.label = 3;
                     case 3:
-                        _a = _b.sent();
-                        _b.label = 4;
-                    case 4:
                         _a;
                         document.getElementById("btnGoBack").click();
-                        this.getLocations();
-                        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["d" /* Location */](0, '', true);
                         this.goBack();
-                        return [2 /*return*/];
+                        _b.label = 4;
+                    case 4: return [2 /*return*/];
                 }
             });
         });
+    };
+    VWLocationComponent.prototype.entryValidation = function () {
+        var msg = '';
+        this.location.LocationDescr.trim() == '' ? msg += 'Location Description is Required.\n' : null;
+        return msg == '' ? (true) : (alert(msg), false);
     };
     VWLocationComponent.prototype.getLocations = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -1986,7 +2451,7 @@ var VWLocationComponent = (function () {
     return VWLocationComponent;
 }());
 VWLocationComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'vw-location',
         template: __webpack_require__("./src/app/mod_maintenance/location/vw_location.component.html"),
     }),
@@ -2034,7 +2499,7 @@ var MaintenanceComponent = (function () {
     return MaintenanceComponent;
 }());
 MaintenanceComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'maintenance',
         template: __webpack_require__("./src/app/mod_maintenance/maintenance.component.html"),
     }),
@@ -2068,7 +2533,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__com_services_set_user_svc__ = __webpack_require__("./src/app/com_services/set_user.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__com_services_set_user_svc__ = __webpack_require__("./src/app/com_services/set_user.svc.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MaintenanceModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2098,13 +2564,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var MaintenanceModule = (function () {
     function MaintenanceModule() {
     }
     return MaintenanceModule;
 }());
 MaintenanceModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         //components area
         declarations: [
             __WEBPACK_IMPORTED_MODULE_6__maintenance_component__["a" /* MaintenanceComponent */],
@@ -2113,13 +2580,13 @@ MaintenanceModule = __decorate([
         ],
         //module area
         imports: [
-            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */], __WEBPACK_IMPORTED_MODULE_12__mod_common_common_comp_module__["a" /* CommonCompModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["BrowserModule"], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_12__mod_common_common_comp_module__["a" /* CommonCompModule */],
             __WEBPACK_IMPORTED_MODULE_5__maintenance_routing__["a" /* MaintenanceRouting */]
         ],
         //services area
         providers: [
             __WEBPACK_IMPORTED_MODULE_13__com_services_location_svc__["a" /* LocationSvc */], __WEBPACK_IMPORTED_MODULE_14__com_services_department_svc__["a" /* DepartmentSvc */], __WEBPACK_IMPORTED_MODULE_15__com_services_skillset_svc__["a" /* SkillsetSvc */], __WEBPACK_IMPORTED_MODULE_16__com_services_associate_svc__["a" /* AssociateSvc */],
-            __WEBPACK_IMPORTED_MODULE_18__com_services_set_user_svc__["a" /* Set_UserSvc */], __WEBPACK_IMPORTED_MODULE_17__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */],
+            __WEBPACK_IMPORTED_MODULE_19__com_services_set_user_svc__["a" /* Set_UserSvc */], __WEBPACK_IMPORTED_MODULE_17__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */], __WEBPACK_IMPORTED_MODULE_18__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]
         ],
         //components to be shared and used using selector
         exports: [
@@ -2191,7 +2658,7 @@ var MaintenanceRouting = (function () {
     return MaintenanceRouting;
 }());
 MaintenanceRouting = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -2204,7 +2671,7 @@ MaintenanceRouting = __decorate([
 /***/ "./src/app/mod_maintenance/skillset/vw_skillset.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"tab-content\">\r\n    <div id=\"ski_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" (click)=\"newDetails()\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#ski_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Skill Id</th>-->\r\n                                <th>Skill Description</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let ss of skillsets\">\r\n                                <!--<td>{{ss.SkillsetID}}</td>-->\r\n                                <td>{{ss.SkillsetDescr}}</td>\r\n                                <td>{{getStatus(ss.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(ss)\" class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#ski_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(ss)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"ski_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#ski_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"viewMode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"viewMode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Skill Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" [(ngModel)]=\"skillset.SkillsetID\" readonly class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Skill Description</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" maxlength=\"15\" [(ngModel)]=\"skillset.SkillsetDescr\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"skillset.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n          <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveSkillset()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"tab-content\">\r\n    <div id=\"ski_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" (click)=\"newDetails()\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#ski_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Skill Id</th>-->\r\n                                <th>Skill Description</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let ss of skillsets\">\r\n                                <!--<td>{{ss.SkillsetID}}</td>-->\r\n                                <td>{{ss.SkillsetDescr}}</td>\r\n                                <td>{{getStatus(ss.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(ss)\" class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#ski_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(ss)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"ski_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#ski_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"viewMode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"viewMode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <!--<div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Skill Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" [(ngModel)]=\"skillset.SkillsetID\" readonly class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />-->\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Skill Description</label>\r\n                <div class=\"col-md-4\">\r\n                    <input type=\"text\" maxlength=\"15\" [(ngModel)]=\"skillset.SkillsetDescr\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"skillset.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n          <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveSkillset()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2214,7 +2681,9 @@ module.exports = "<div class=\"tab-content\">\r\n    <div id=\"ski_default\" cla
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VWSkillsetComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2263,17 +2732,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+
 var VWSkillsetComponent = (function () {
-    function VWSkillsetComponent(skillsetSvc) {
+    function VWSkillsetComponent(skillsetSvc, departmentSkillsetSvc, assocDeptSkillsetSvc) {
         this.skillsetSvc = skillsetSvc;
+        this.departmentSkillsetSvc = departmentSkillsetSvc;
+        this.assocDeptSkillsetSvc = assocDeptSkillsetSvc;
         this.viewMode = 0;
-        this.skillset = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["c" /* Skillset */](0, '', true);
+        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["c" /* Skillset */](0, '', true);
         this.skillsets = [];
+        this.departmentSkillsets = [];
+        this.associateDepartmentSkillset = [];
         this.mode = 0;
-        this.getskillsets();
+        this.goBack();
     }
     VWSkillsetComponent.prototype.newDetails = function () {
-        this.skillset = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["c" /* Skillset */](0, '', true);
+        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["c" /* Skillset */](0, '', true);
     };
     VWSkillsetComponent.prototype.editDetails = function (skillset) {
         this.viewMode = 1;
@@ -2291,10 +2766,71 @@ var VWSkillsetComponent = (function () {
         this.getDetails(skillset);
         this.viewMode = 1;
         this.skillset.IsActive = false;
+        this.deleteDepartmentSkillset(skillset.SkillsetID);
         this.saveSkillset();
     };
+    //delete departmentSkillset
+    VWSkillsetComponent.prototype.deleteDepartmentSkillset = function (skillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, deptSkillset;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        this.departmentSkillsets = this.departmentSkillsets.filter(function (x) { return x.SkillsetID == skillsetID; });
+                        console.log(this.departmentSkillsets);
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < this.departmentSkillsets.length)) return [3 /*break*/, 4];
+                        deptSkillset = this.departmentSkillsets[i];
+                        return [4 /*yield*/, this.departmentSkillsetSvc.DeleteDepartmentSkillset(deptSkillset.DepartmentSkillsetID)];
+                    case 2:
+                        _a.sent();
+                        this.deleteAssociateDepartmentSkillset(deptSkillset.DepartmentSkillsetID);
+                        _a.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        console.log('done');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //delete assocdeptSkillset
+    VWSkillsetComponent.prototype.deleteAssociateDepartmentSkillset = function (deptSkillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tempAssocDeptSkillset, i, assocDeptSkillset;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        tempAssocDeptSkillset = this.associateDepartmentSkillset.filter(function (x) { return x.DepartmentSkillsetID == deptSkillsetID; });
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < tempAssocDeptSkillset.length)) return [3 /*break*/, 4];
+                        assocDeptSkillset = tempAssocDeptSkillset[i];
+                        return [4 /*yield*/, this.assocDeptSkillsetSvc.DeleteAssociateDeptSkillset(assocDeptSkillset.AssociateDepartmentSkillsetID)];
+                    case 2:
+                        _a.sent();
+                        _a.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        console.log('done deleting associateDepartmentSkillset');
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     VWSkillsetComponent.prototype.goBack = function () {
+        this.getskillsets();
+        this.getDepartmentSkillsets();
+        this.getAssociateDepartmentSkillsets();
         this.mode = 0;
+        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["c" /* Skillset */](0, '', true);
     };
     VWSkillsetComponent.prototype.saveSkillset = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -2302,25 +2838,32 @@ var VWSkillsetComponent = (function () {
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
+                        if (!this.entryValidation()) return [3 /*break*/, 5];
                         if (!(this.viewMode == 0)) return [3 /*break*/, 2];
                         return [4 /*yield*/, this.skillsetSvc.postSkillset(this.skillset)];
                     case 1:
-                        _a = _b.sent();
+                        _a = (_b.sent(),
+                            alert("New Record has been successfully added."));
                         return [3 /*break*/, 4];
                     case 2: return [4 /*yield*/, this.skillsetSvc.putSkillset(this.skillset)];
                     case 3:
-                        _a = _b.sent();
+                        _a = (_b.sent(),
+                            alert("Record has been successfully updated."));
                         _b.label = 4;
                     case 4:
                         _a;
                         document.getElementById("btnGoBack").click();
-                        this.getskillsets();
-                        this.skillset = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["c" /* Skillset */](0, '', true);
                         this.goBack();
-                        return [2 /*return*/];
+                        _b.label = 5;
+                    case 5: return [2 /*return*/];
                 }
             });
         });
+    };
+    VWSkillsetComponent.prototype.entryValidation = function () {
+        var msg = '';
+        this.skillset.SkillsetDescr.trim() == '' ? msg += 'Skill Description is Required.\n' : null;
+        return msg == '' ? (true) : (alert(msg), false);
     };
     VWSkillsetComponent.prototype.getskillsets = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -2337,17 +2880,47 @@ var VWSkillsetComponent = (function () {
             });
         });
     };
+    VWSkillsetComponent.prototype.getDepartmentSkillsets = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.departmentSkillsetSvc.getDepartmentSkillsets()];
+                    case 1:
+                        _a.departmentSkillsets = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    VWSkillsetComponent.prototype.getAssociateDepartmentSkillsets = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.assocDeptSkillsetSvc.getAssociateDeptSkillsets()];
+                    case 1:
+                        _a.associateDepartmentSkillset = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     return VWSkillsetComponent;
 }());
 VWSkillsetComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'vw-skillset',
         template: __webpack_require__("./src/app/mod_maintenance/skillset/vw_skillset.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]) === "function" && _c || Object])
 ], VWSkillsetComponent);
 
-var _a;
+var _a, _b, _c;
 //# sourceMappingURL=vw_skillset.component.js.map
 
 /***/ }),
@@ -2355,7 +2928,7 @@ var _a;
 /***/ "./src/app/mod_search/search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <h3>Search</h3>\r\n            <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Search by Location</label>\r\n                    <select class=\"form-control input-sm\"></select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Search by Associate(s)</label>\r\n                    <select class=\"form-control input-sm\"></select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Search by Skillset(s)</label>\r\n                    <select class=\"form-control input-sm\"></select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Search by Department(s)</label>\r\n                    <select class=\"form-control input-sm\"></select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date From</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date To</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <a href=\"#\" class=\"btn btn-primary btn-sm pull-right\"><i class=\"fa fa-send\"></i>&nbsp;View Report</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-9\">\r\n            <!--report content here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <h3>Search</h3>\r\n            <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />  \r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Search by Location</label>\r\n                    <select class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of locations\" [value]=\"x.LocationID\"> {{x.LocationDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"0\"/>&nbsp;Search by Associate(s)\r\n                    </label>\r\n                    <!--<select class=\"form-control input-sm\"></select>-->\r\n                    <ng-select  [multiple]=\"true\"\r\n                    \r\n                        [active]=\"yourVariableName\"\r\n                        [allowClear]=\"true\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=0\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        (selected)=\"selected($event)\"\r\n                        (removed)=\"removed($event)\"\r\n                        placeholder=\"No Associate selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"1\"/>&nbsp;Search by Skillset(s)\r\n                    </label>\r\n                    <ng-select  [multiple]=\"true\"\r\n                        [allowClear]=\"true\"\r\n                        [active]=\"yourVariableName\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=1\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        (selected)=\"selected($event)\"\r\n                        (removed)=\"removed($event)\"\r\n                        placeholder=\"No Skills selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"2\"/>&nbsp;Search by Department(s)\r\n                    </label>\r\n                    <ng-select  [multiple]=\"true\"\r\n                    [allowClear]=\"true\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=2\"\r\n                        [active]=\"yourVariableName\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        (selected)=\"selected($event)\"\r\n                        (removed)=\"removed($event)\"\r\n                        placeholder=\"No Departments selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date From</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date To</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <a href=\"#\" class=\"btn btn-primary btn-sm pull-right\"><i class=\"fa fa-send\"></i>&nbsp;View Report</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-9\">\r\n            <!--report content here-->\r\n            <!--<div class=\"report-content\"></div>-->\r\n            <div style=\"width: 300px; margin-bottom: 20px;\">\r\n            <h3>Select multiple cities</h3>\r\n            \r\n            <pre>{{itemsToString(value)}}</pre>\r\n            <div>\r\n                \r\n            </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2364,6 +2937,11 @@ module.exports = "<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n      
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__ = __webpack_require__("./src/app/com_services/location.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__ = __webpack_require__("./src/app/com_services/set_user.svc.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2374,20 +2952,202 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+//services
+
+
+
+
 
 var SearchComponent = (function () {
-    function SearchComponent() {
+    function SearchComponent(associateSvc, departmentSvc, locationSvc, skillsetSvc, setUserSvc) {
+        this.associateSvc = associateSvc;
+        this.departmentSvc = departmentSvc;
+        this.locationSvc = locationSvc;
+        this.skillsetSvc = skillsetSvc;
+        this.setUserSvc = setUserSvc;
+        this.radioSelect = 0;
+        this.yourVariableName = [];
+        //initial collection
+        this.skillsets = [];
+        this.locations = [];
+        this.departments = [];
+        this.associates = [];
+        this.set_Users = [];
+        //ng2-select items
+        this.associateItems = []; //Array<string>=[];
+        this.items = [];
+        //public items:Array<string>;
+        // public items:Array<string> = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
+        //   'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
+        //   'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin', 'Düsseldorf',
+        //   'Essen', 'Frankfurt', 'Genoa', 'Glasgow', 'Gothenburg', 'Hamburg', 'Hannover',
+        //   'Helsinki', 'Leeds', 'Leipzig', 'Lisbon', 'Łódź', 'London', 'Kraków', 'Madrid',
+        //   'Málaga', 'Manchester', 'Marseille', 'Milan', 'Munich', 'Naples', 'Palermo',
+        //   'Paris', 'Poznań', 'Prague', 'Riga', 'Rome', 'Rotterdam', 'Seville', 'Sheffield',
+        //   'Sofia', 'Stockholm', 'Stuttgart', 'The Hague', 'Turin', 'Valencia', 'Vienna',
+        //   'Vilnius', 'Warsaw', 'Wrocław', 'Zagreb', 'Zaragoza'];
+        this.value = ['Athens'];
     }
+    SearchComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.getDependencies().then(function () {
+            _this.removeInactive().then(function () {
+                _this.getItems();
+            });
+        });
+        //this.removeInactive();
+    };
+    SearchComponent.prototype.getDependencies = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b, _c, _d, _e;
+            return __generator(this, function (_f) {
+                switch (_f.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.locationSvc.getLocations()];
+                    case 1:
+                        _a.locations = _f.sent();
+                        _b = this;
+                        return [4 /*yield*/, this.departmentSvc.getDepartments()];
+                    case 2:
+                        _b.departments = _f.sent();
+                        _c = this;
+                        return [4 /*yield*/, this.associateSvc.getAssociates()];
+                    case 3:
+                        _c.associates = _f.sent();
+                        _d = this;
+                        return [4 /*yield*/, this.setUserSvc.getSet_Users()];
+                    case 4:
+                        _d.set_Users = _f.sent();
+                        _e = this;
+                        return [4 /*yield*/, this.skillsetSvc.getSkillsets()];
+                    case 5:
+                        _e.skillsets = _f.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    SearchComponent.prototype.removeInactive = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, _b, _c, _d;
+            return __generator(this, function (_e) {
+                switch (_e.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.locations.filter(function (x) { return x.IsActive == true; })];
+                    case 1:
+                        _a.locations = _e.sent();
+                        _b = this;
+                        return [4 /*yield*/, this.departments.filter(function (x) { return x.IsActive == true; })];
+                    case 2:
+                        _b.departments = _e.sent();
+                        _c = this;
+                        return [4 /*yield*/, this.associates.filter(function (x) { return x.IsActive == true; })];
+                    case 3:
+                        _c.associates = _e.sent();
+                        _d = this;
+                        return [4 /*yield*/, this.skillsets.filter(function (x) { return x.IsActive == true; })];
+                    case 4:
+                        _d.skillsets = _e.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    SearchComponent.prototype.getFullName = function (username) {
+        var user = this.set_Users.find(function (x) { return x.user_name == username; });
+        //console.log(user);
+        return user == null ? null : user.user_first_name + ' ' + user.user_last_name;
+    };
+    SearchComponent.prototype.getItems = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, fullName, i, i;
+            return __generator(this, function (_a) {
+                this.items = [];
+                if (this.radioSelect == 0) {
+                    for (i = 0; i < this.associates.length; i++) {
+                        fullName = this.getFullName(this.associates[i].UserName);
+                        this.items.push({ 'id': this.associates[i].AssociateID.toString(), 'text': this.getFullName(this.associates[i].UserName) });
+                    }
+                }
+                else if (this.radioSelect == 1) {
+                    for (i = 0; i < this.skillsets.length; i++) {
+                        this.items.push({ 'id': this.skillsets[i].SkillsetID.toString(), 'text': this.skillsets[i].SkillsetDescr });
+                    }
+                }
+                else {
+                    for (i = 0; i < this.departments.length; i++) {
+                        this.items.push({ 'id': this.departments[i].DepartmentID.toString(), 'text': this.departments[i].DepartmentDescr });
+                    }
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    SearchComponent.prototype.selected = function (value) {
+        console.log('Selected value is: ', value);
+    };
+    SearchComponent.prototype.removed = function (value) {
+        console.log('Removed value is: ', value);
+    };
+    SearchComponent.prototype.refreshValue = function (value) {
+        this.value = value;
+    };
+    SearchComponent.prototype.itemsToString = function (value) {
+        if (value === void 0) { value = []; }
+        return value
+            .map(function (item) {
+            return item.text;
+        }).join(',');
+    };
     return SearchComponent;
 }());
 SearchComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'search',
         template: __webpack_require__("./src/app/mod_search/search.component.html"),
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */]) === "function" && _e || Object])
 ], SearchComponent);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=search.component.js.map
 
 /***/ }),
@@ -2402,7 +3162,15 @@ SearchComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("./node_modules/@angular/http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__search_routing__ = __webpack_require__("./src/app/mod_search/search.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search_component__ = __webpack_require__("./src/app/mod_search/search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_select__ = __webpack_require__("./node_modules/ng2-select/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_select__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__search_component__ = __webpack_require__("./src/app/mod_search/search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__com_services_location_svc__ = __webpack_require__("./src/app/com_services/location.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2416,7 +3184,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 //components
+
+//services
+
+
+
+
+
 
 var SearchModule = (function () {
     function SearchModule() {
@@ -2424,21 +3200,25 @@ var SearchModule = (function () {
     return SearchModule;
 }());
 SearchModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         //components area
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_6__search_component__["a" /* SearchComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__search_component__["a" /* SearchComponent */],
         ],
         //module area
         imports: [
-            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["BrowserModule"], __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */], __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
+            __WEBPACK_IMPORTED_MODULE_6_ng2_select__["SelectModule"],
             __WEBPACK_IMPORTED_MODULE_5__search_routing__["a" /* SearchRouting */]
         ],
         //services area
-        providers: [],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_8__com_services_location_svc__["a" /* LocationSvc */], __WEBPACK_IMPORTED_MODULE_9__com_services_department_svc__["a" /* DepartmentSvc */], __WEBPACK_IMPORTED_MODULE_10__com_services_skillset_svc__["a" /* SkillsetSvc */], __WEBPACK_IMPORTED_MODULE_11__com_services_associate_svc__["a" /* AssociateSvc */],
+            __WEBPACK_IMPORTED_MODULE_12__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */], __WEBPACK_IMPORTED_MODULE_13__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]
+        ],
         //components to be shared and used using selector
         exports: [
-            __WEBPACK_IMPORTED_MODULE_6__search_component__["a" /* SearchComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__search_component__["a" /* SearchComponent */],
         ]
     })
 ], SearchModule);
@@ -2477,7 +3257,7 @@ var SearchRouting = (function () {
     return SearchRouting;
 }());
 SearchRouting = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -2580,10 +3360,10 @@ var SkillSetComponent = (function () {
         this.fb = fb;
         this.skillsetFrm = this.fb.group({
             'UserName': [' '],
-            'Department': [1, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required],
-            'Location': [1, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].required],
+            'Department': [1, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
+            'Location': [1, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required],
             'VPN': [false],
-            'PhoneNumber': [' ', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* Validators */].maxLength(20)],
+            'PhoneNumber': [' ', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].maxLength(20)],
             'UpdatedOn': [' ']
         });
     }
@@ -3027,11 +3807,11 @@ var SkillSetComponent = (function () {
     return SkillSetComponent;
 }());
 SkillSetComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'skillset',
         template: __webpack_require__("./src/app/mod_skillset/skillset.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_currentuser_svc__["a" /* CurrentUserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_currentuser_svc__["a" /* CurrentUserSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__com_services_associate_svc__["a" /* AssociateSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__com_services_associate_svc__["a" /* AssociateSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__com_services_location_svc__["a" /* LocationSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__com_services_location_svc__["a" /* LocationSvc */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_11__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* FormBuilder */]) === "function" && _j || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_currentuser_svc__["a" /* CurrentUserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_currentuser_svc__["a" /* CurrentUserSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__com_services_associate_svc__["a" /* AssociateSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__com_services_associate_svc__["a" /* AssociateSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__com_services_location_svc__["a" /* LocationSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__com_services_location_svc__["a" /* LocationSvc */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_11__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormBuilder"]) === "function" && _j || Object])
 ], SkillSetComponent);
 
 var _a, _b, _c, _d, _e, _f, _g, _h, _j;
@@ -3089,15 +3869,15 @@ var SkillsetModule = (function () {
     return SkillsetModule;
 }());
 SkillsetModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_5__skillset_component__["a" /* SkillSetComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
+            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["BrowserModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormsModule"],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_6__skillset_routing__["a" /* SkillSetRouting */],
             __WEBPACK_IMPORTED_MODULE_7__mod_common_common_comp_module__["a" /* CommonCompModule */]
@@ -3150,7 +3930,7 @@ var SkillSetRouting = (function () {
     return SkillSetRouting;
 }());
 SkillSetRouting = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */]]
     })
@@ -3191,14 +3971,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
 /***/ }),
 
+/***/ 0:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
 /***/ 1:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./src/main.ts");
@@ -3206,5 +4007,5 @@ module.exports = __webpack_require__("./src/main.ts");
 
 /***/ })
 
-},[1]);
+},[4]);
 //# sourceMappingURL=main.bundle.js.map

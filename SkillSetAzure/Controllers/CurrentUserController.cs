@@ -30,6 +30,21 @@ namespace SkillSetAzure.Controllers
             return cu;
         }
 
+        [Route("api/GetDoma")]
+        public CurrentUser GetDoma()
+        {
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            string curdom2 = Environment.UserName;
+
+            CurrentUser cu = new CurrentUser
+            {
+                id = 1,
+                //UserName = "1) " + currentDomainUser + " - other type - 2)" + curdom2
+                UserName = Environment.UserDomainName + " - " + Environment.UserInteractive + "-" + HttpContext.Current.User.Identity.Name.ToString()
+            };
+
+            return cu;
+        }
         //// GET api/currentuser/5
         //public string Get(int id)
         //{

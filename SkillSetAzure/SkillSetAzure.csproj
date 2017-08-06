@@ -121,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -158,6 +157,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AssociateDepartmentSkillsetsController.cs" />
     <Compile Include="Controllers\AssociatesController.cs" />
+    <Compile Include="Controllers\CurrentUserController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\DepartmentSkillsetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -171,6 +171,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708060541457_Initial.cs" />
+    <Compile Include="Migrations\201708060541457_Initial.Designer.cs">
+      <DependentUpon>201708060541457_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\set_group.cs" />
     <Compile Include="Models\set_group_access.cs" />
     <Compile Include="Models\set_module.cs" />
@@ -187,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\fontawesome-webfont.acf3dcb7ff752b5296ca.svg" />
+    <Content Include="Content\glyphicons-halflings-regular.89889688147bd7575d63.svg" />
+    <Content Include="Content\styles.bundle.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -208,7 +217,21 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Content\fontawesome-webfont.674f50d287a8c48dc19b.eot" />
+    <Content Include="Content\fontawesome-webfont.af7ae505a9eed503f8b8.woff2" />
+    <Content Include="Content\fontawesome-webfont.b06871f281fee6b241d6.ttf" />
+    <Content Include="Content\fontawesome-webfont.fee66e712a8a08eef580.woff" />
+    <Content Include="Content\glyphicons-halflings-regular.448c34a56d699c29117a.woff2" />
+    <Content Include="Content\glyphicons-halflings-regular.e18bbf611f2a2e43afc0.ttf" />
+    <Content Include="Content\glyphicons-halflings-regular.f4769f9bdb7466be6508.eot" />
+    <Content Include="Content\glyphicons-halflings-regular.fa2772327f55d8198301.woff" />
     <None Include="Properties\PublishProfiles\SkillSetAzure.pubxml" />
+    <Content Include="Scripts\inline.bundle.js" />
+    <Content Include="Scripts\main.bundle.js" />
+    <Content Include="Scripts\polyfills.bundle.js" />
+    <Content Include="Scripts\scripts.bundle.js" />
+    <Content Include="Scripts\styles.bundle.js" />
+    <Content Include="Scripts\vendor.bundle.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -223,8 +246,18 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\inline.bundle.js.map" />
+    <Content Include="Scripts\main.bundle.js.map" />
+    <Content Include="Scripts\polyfills.bundle.js.map" />
+    <Content Include="Scripts\scripts.bundle.js.map" />
+    <Content Include="Scripts\styles.bundle.js.map" />
+    <Content Include="Scripts\vendor.bundle.js.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708060541457_Initial.resx">
+      <DependentUpon>201708060541457_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

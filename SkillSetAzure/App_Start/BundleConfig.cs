@@ -9,15 +9,15 @@ namespace SkillSetAzure
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                       "~/Content/styles.24f154a169d9024f2b08.bundle.css"));
+                       "~/Content/styles.bundle.css"));
 
 
             bundles.Add(new ScriptBundle("~/Scripts/js").Include(
-                        "~/Scripts/inline.403ce165287b48588036.bundle.js",
-                        "~/Scripts/polyfills.f7b874881570ebababa5.bundle.js",
-                        "~/Scripts/scripts.35583b669d2fd19a88da.bundle.js",
-                        "~/Scripts/vendor.e2c7bdd2342cb9c54abb.bundle.js",
-                        "~/Scripts/main.7554ab6f899b44b76829.bundle.js"));
+                        "~/Scripts/inline.bundle.js",
+                        "~/Scripts/polyfills.bundle.js",
+                        "~/Scripts/scripts.bundle.js",
+                        "~/Scripts/vendor.bundle.js",
+                        "~/Scripts/main.bundle.js"));
         }
     }
 }

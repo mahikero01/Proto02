@@ -20,7 +20,7 @@ namespace SkillSetAzure.Controllers
         // GET: api/Locations
         public IQueryable<SS_Locations> GetSS_Locations()
         {
-            return db.SS_Locations;
+            return db.SS_Locations.OrderBy(x => x.LocationDescr);
         }
 
         // GET: api/Locations/5

@@ -20,11 +20,16 @@ namespace SkillSetAzure.Controllers
             //username only
             //string currentUsername = currentDomainUser.Remove(0, currentDomainUser.IndexOf('\\') + 1);
             //int index = currentDomainUser.IndexOf("\\" + currentUsername);
+            string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
+            //currentDomainUser = currentDomainUser.Remove(0, currentDomainUser.IndexOf('@') + 1);
+            currentDomainUser = currentDomainUser==null||currentDomainUser.Trim().Equals("") ? "" : currentDomainUser.Substring(0, currentDomainUser.IndexOf('@'));
+
+           
 
             CurrentUser cu = new CurrentUser
             {
                 id = 1,
-                UserName = "sarmife"
+                UserName = currentDomainUser
             };
 
             return cu;
@@ -34,13 +39,27 @@ namespace SkillSetAzure.Controllers
         public CurrentUser GetDoma()
         {
             string currentDomainUser = HttpContext.Current.User.Identity.Name.ToString();
-            string curdom2 = Environment.UserName;
+            //currentDomainUser = currentDomainUser.Remove(0, currentDomainUser.IndexOf('@') + 1);
+            //currentDomainUser = currentDomainUser.Substring(0, currentDomainUser.IndexOf('@'));
+            currentDomainUser = currentDomainUser == null || currentDomainUser.Trim().Equals("") ? "" : currentDomainUser.Substring(0, currentDomainUser.IndexOf('@'));
+
+            string curdom2 = Environment.UserName; ;
 
             CurrentUser cu = new CurrentUser
             {
                 id = 1,
+                UserName = currentDomainUser,
                 //UserName = "1) " + currentDomainUser + " - other type - 2)" + curdom2
-                UserName = Environment.UserDomainName + " - " + Environment.UserInteractive + "-" + HttpContext.Current.User.Identity.Name.ToString()
+
+                
+                //UserName = "1)" + Environment.UserDomainName + 
+                //    " 2)" + Environment.UserInteractive +
+                //    " 3)" + currentDomainUser +
+                //    " 4)" + HttpContext.Current.Request.LogonUserIdentity.User.ToString() +
+                //    " 5)" + HttpContext.Current.Request.LogonUserIdentity.Owner.ToString()+
+                //    " 6)" + RequestContext.Principal.Identity.Name.ToString()+
+                //    " 7)" + HttpContext.Current.Request.LogonUserIdentity.Name+
+                //    " "
             };
 
             return cu;

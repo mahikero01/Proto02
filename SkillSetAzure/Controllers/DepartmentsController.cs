@@ -20,7 +20,7 @@ namespace SkillSetAzure.Controllers
         // GET: api/Departments
         public IQueryable<SS_Departments> GetSS_Departments()
         {
-            return db.SS_Departments;
+            return db.SS_Departments.OrderBy(x => x.DepartmentDescr);
         }
 
         // GET: api/Departments/5

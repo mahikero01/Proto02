@@ -20,7 +20,7 @@ namespace SkillSetAzure.Controllers
         // GET: api/Associates
         public IQueryable<SS_Associates> GetSS_Associates()
         {
-            return db.SS_Associates;
+            return db.SS_Associates.OrderBy(x => x.UserName);
         }
 
         // GET: api/Associates/5

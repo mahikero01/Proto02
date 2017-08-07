@@ -20,7 +20,7 @@ namespace SkillSetAzure.Controllers
         // GET: api/Skillsets
         public IQueryable<SS_Skillsets> GetSS_Skillsets()
         {
-            return db.SS_Skillsets;
+            return db.SS_Skillsets.OrderBy(x => x.SkillsetDescr);
         }
 
         // GET: api/Skillsets/5

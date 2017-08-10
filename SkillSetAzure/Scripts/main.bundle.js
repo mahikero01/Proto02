@@ -222,20 +222,24 @@ var DepartmentSkillsetDBO = (function () {
 
 "use strict";
 /* unused harmony export AssociateSkillsets */
-/* unused harmony export AssociateDepartmentSkillsetRpt */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return AssociateDepartmentSkillset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return AssociateDepartmentSkillset; });
 /* unused harmony export DepartmentSkillsets */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Associate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Department; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return Skillset; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Location; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return Associate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return Department; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Skillset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return Location; });
 /* unused harmony export Set_Module */
 /* unused harmony export Set_Group */
 /* unused harmony export Set_User */
 /* unused harmony export User */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return DepartmentSkillsets1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectedSkillset; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return DepartmentSkillsets1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return SelectedSkillset; });
 /* unused harmony export ng2Items */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AssociateRpt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SkillsetRpt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return DepartmentSkills; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return AssociateDetails; });
+/* unused harmony export SelectItem */
 //THIS SHOULD BE REMOVEDBEFORE DEPLOYEMENT IN LIVE
 var AssociateSkillsets = (function () {
     function AssociateSkillsets(AssociateSkillsetID, //primary key
@@ -245,18 +249,6 @@ var AssociateSkillsets = (function () {
         this.SkillsetID = SkillsetID;
     }
     return AssociateSkillsets;
-}());
-
-/* reports - eros - */
-var AssociateDepartmentSkillsetRpt = (function () {
-    function AssociateDepartmentSkillsetRpt(AssociateDepartmentSkillsetID, //primary key
-        AssociateID, DepartmentSkillsetID, Department) {
-        this.AssociateDepartmentSkillsetID = AssociateDepartmentSkillsetID;
-        this.AssociateID = AssociateID;
-        this.DepartmentSkillsetID = DepartmentSkillsetID;
-        this.Department = Department;
-    }
-    return AssociateDepartmentSkillsetRpt;
 }());
 
 /*AssociateViews*/
@@ -417,6 +409,56 @@ var ng2Items = (function () {
     return ng2Items;
 }());
 
+/* reports - eros - */
+var AssociateRpt = (function () {
+    function AssociateRpt(Name, PhoneNumber, CurrentDepartment, CurrentLocation, VPN, LastUpdated, DepartmentSkills) {
+        this.Name = Name;
+        this.PhoneNumber = PhoneNumber;
+        this.CurrentDepartment = CurrentDepartment;
+        this.CurrentLocation = CurrentLocation;
+        this.VPN = VPN;
+        this.LastUpdated = LastUpdated;
+        this.DepartmentSkills = DepartmentSkills;
+    }
+    return AssociateRpt;
+}());
+
+var SkillsetRpt = (function () {
+    function SkillsetRpt(Skillset, Associates) {
+        this.Skillset = Skillset;
+        this.Associates = Associates;
+    }
+    return SkillsetRpt;
+}());
+
+var DepartmentSkills = (function () {
+    function DepartmentSkills(Skills, DepartmentName) {
+        this.Skills = Skills;
+        this.DepartmentName = DepartmentName;
+    }
+    return DepartmentSkills;
+}());
+
+var AssociateDetails = (function () {
+    function AssociateDetails(Name, VPN, Department, Location, UpdatedOn) {
+        this.Name = Name;
+        this.VPN = VPN;
+        this.Department = Department;
+        this.Location = Location;
+        this.UpdatedOn = UpdatedOn;
+    }
+    return AssociateDetails;
+}());
+
+// SelectItem
+var SelectItem = (function () {
+    function SelectItem(id, text) {
+        this.id = id;
+        this.text = text;
+    }
+    return SelectItem;
+}());
+
 //# sourceMappingURL=entities.js.map
 
 /***/ }),
@@ -562,7 +604,8 @@ var AssociateDepartmentSkillsetsSvc = (function () {
     function AssociateDepartmentSkillsetsSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/AssociateDepartmentSkillsets';
+        // private apiUrl = 'api/AssociateDepartmentSkillsets';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/AssociateDepartmentSkillsets';
     }
     AssociateDepartmentSkillsetsSvc.prototype.getAssociateDeptSkillsets = function () {
         return this.http
@@ -643,7 +686,8 @@ var AssociateSvc = (function () {
     function AssociateSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/Associates';
+        // private apiUrl = 'api/Associates';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/Associates';
     }
     AssociateSvc.prototype.getAssociates = function () {
         return this.http
@@ -724,7 +768,8 @@ var CurrentUserSvc = (function () {
     function CurrentUserSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/CurrentUser';
+        // private apiUrl = 'api/CurrentUser';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/CurrentUser';
     }
     CurrentUserSvc.prototype.getCurrentUser = function () {
         return this.http
@@ -774,7 +819,8 @@ var DepartmentSvc = (function () {
     function DepartmentSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/Departments';
+        // private apiUrl = 'api/Departments';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/Departments';
     }
     DepartmentSvc.prototype.getDepartments = function () {
         return this.http
@@ -855,7 +901,8 @@ var DepartmentSkillsetsSvc = (function () {
     function DepartmentSkillsetsSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/DepartmentSkillsets';
+        // private apiUrl = 'api/DepartmentSkillsets';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/DepartmentSkillsets';
     }
     DepartmentSkillsetsSvc.prototype.getDepartmentSkillsets = function () {
         return this.http
@@ -986,7 +1033,9 @@ var LocationSvc = (function () {
     function LocationSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/Locations';
+        //private apiUrl ='api/Locations';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/Locations';
+        //this.apiUrl=this.config.getUrl(true);
     }
     LocationSvc.prototype.getLocations = function () {
         return this.http
@@ -1067,7 +1116,8 @@ var Set_UserSvc = (function () {
     function Set_UserSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/Set_User';
+        // private apiUrl = 'api/Set_User';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/Set_User';
     }
     Set_UserSvc.prototype.getSet_Users = function () {
         return this.http
@@ -1148,7 +1198,8 @@ var SkillsetSvc = (function () {
     function SkillsetSvc(http) {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.apiUrl = 'api/Skillsets';
+        // private apiUrl = 'api/Skillsets';
+        this.apiUrl = 'https://skillsetazure.azurewebsites.net/api/Skillsets';
     }
     SkillsetSvc.prototype.getSkillsets = function () {
         return this.http
@@ -1225,7 +1276,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/mod-test-export/mod-test-export.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" style=\"margin-top: 20px;\">\r\n  <div class=\"panel panel-default\">\r\n    <div class=\"panel-heading\">All persons data</div>\r\n    <table class=\"table\" *ngIf=\"persons\">\r\n      <thead>\r\n        <tr>\r\n          <th>Id</th>\r\n          <th>Name</th>\r\n          <th>Surname</th>\r\n          <th>Age</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let person of persons\">\r\n          <td>{{person.id}}</td>\r\n          <td>{{person.name}}</td>\r\n          <td>{{person.surname}}</td>\r\n          <td>{{person.age}}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n  <button (click)=\"exportToExcel()\" class=\"btn btn-primary\">Export to excel</button>\r\n</div>"
+module.exports = "<div class=\"container\" style=\"margin-top: 20px;\">\r\n  <div class=\"panel panel-default\">\r\n    <div class=\"panel-heading\">All persons data</div>\r\n    <table class=\"table\" *ngIf=\"persons\">\r\n      <thead>\r\n        <tr>\r\n          <th>Id</th>\r\n          <th>Name</th>\r\n          <th>Surname</th>\r\n          <th>Age</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let person of persons\">\r\n          <td>{{person.id}}</td>\r\n          <td>{{person.name}}</td>\r\n          <td>{{person.surname}}</td>\r\n          <td>{{person.age}}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div><!--(click)=\"exportToExcel()\"-->\r\n  <button  class=\"btn btn-primary\">Export to excel</button>\r\n</div>"
 
 /***/ }),
 
@@ -1590,7 +1641,7 @@ SaveBarComponent = __decorate([
 /***/ "./src/app/mod_maintenance/associate/vw_associate.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"tab-content\">\r\n    <div id=\"asc_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#asc_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Associate Id</th>-->\r\n                                <th>Name</th>\r\n                                <th>Phone Number</th>\r\n                                <th>VPN Capable</th>\r\n                                <th>Department</th>\r\n                                <th>Location</th>\r\n                                <th>Updated On</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let x of associates\">\r\n                                <!--<td>{{x.AssociateID}}</td>-->\r\n                                <td>{{getFullName(x.UserName)}}</td>\r\n                                <td>{{x.PhoneNumber}}</td>\r\n                                <td>{{getStatus(x.VPN)}}</td>\r\n                                <td>{{getDepartmentName(x.DepartmentID)}}</td>\r\n                                <td>{{getLocationName(x.LocationID)}}</td>\r\n                                <td>{{x.UpdatedOn | date: 'dd/MM/yyyy'}}</td>\r\n                                <td>{{getStatus(x.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(x)\" class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#asc_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(x)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"asc_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#asc_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"mode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"mode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <!--<div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Associate Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input [(ngModel)]=\"associate.AssociateID\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />-->\r\n            <div class=\"row\" *ngIf=\"mode==0\">\r\n                <label class=\"col-md-2 control-label\">Full Name</label>\r\n                <div class=\"col-md-4\">\r\n                    <select class=\"form-control input-sm\" [(ngModel)]=\"associate.UserName\">\r\n                        <option *ngFor=\"let x of getUnusedUsers()\" [value]=\"x.user_name\"> {{x.user_first_name+\" \" +x.user_last_name}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br *ngIf=\"mode==0\"/>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Username</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UserName + ' - ' +getFullName(associate.UserName) }}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Phone Number</label>\r\n                <div class=\"col-md-4\">\r\n                    <input maxlength=\"20\" [(ngModel)]=\"associate.PhoneNumber\" type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">VPN Capable</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.VPN\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.DepartmentID\" class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of getActiveDepartments()\" [value]=\"x.DepartmentID\"> {{x.DepartmentDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.LocationID\" class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of getActiveLocations()\" [value]=\"x.LocationID\"> {{x.LocationDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Updated On</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UpdatedOn | date: 'dd/MM/yyyy'}}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n           <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveAssociate()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"tab-content\">\r\n    <div id=\"asc_default\" class=\"tab-pane fade in active\">\r\n        <div class=\"col-md-12\">\r\n            <!--tool bar-->\r\n            <div class=\"row\">\r\n                <a href=\"#\" class=\"btn btn-primary btn-sm\" data-toggle=\"tab\" data-target=\"#asc_editor\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</a>\r\n            </div>\r\n            <br />\r\n            <!--table-->\r\n            <div class=\"row\">\r\n                <div class=\"table-responsive\">\r\n                    <table class=\"table table-bordered table-striped table-hover input-sm\">\r\n                        <thead>\r\n                            <tr>\r\n                                <!--<th>Associate Id</th>-->\r\n                                <th>Name</th>\r\n                                <th>Phone Number</th>\r\n                                <th>VPN Capable</th>\r\n                                <th>Department</th>\r\n                                <th>Location</th>\r\n                                <th>Updated On</th>\r\n                                <th>Is Active</th>\r\n                                <th>&nbsp;</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr *ngFor=\"let x of associates\">\r\n                                <!--<td>{{x.AssociateID}}</td>-->\r\n                                <td>{{getFullName(x.UserName)}}</td>\r\n                                <td>{{x.PhoneNumber}}</td>\r\n                                <td>{{getStatus(x.VPN)}}</td>\r\n                                <td>{{getDepartmentName(x.DepartmentID)}}</td>\r\n                                <td>{{getLocationName(x.LocationID)}}</td>\r\n                                <td>{{x.UpdatedOn | date: 'dd/MM/yyyy'}}</td>\r\n                                <td>{{getStatus(x.IsActive)}}</td>\r\n                                <td>\r\n                                    <div class=\"btn-group\">\r\n                                        <a (click)=\"editDetails(x)\" class=\"btn btn-default btn-xs\" data-toggle=\"tab\" data-target=\"#asc_editor\" title=\"Edit\"><i class=\"fa fa-edit\"></i></a>\r\n                                        <a (click)=\"changeStatus(x)\" class=\"btn btn-default btn-xs\" title=\"Delete\"><i class=\"fa fa-trash\"></i></a>\r\n                                    </div>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n            </div>\r\n            <!--pagination-->\r\n            <div class=\"row\">\r\n                <div class=\"pull-right\">\r\n                    <ul class=\"pagination pagination-sm\">\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Previous\">\r\n                                <span aria-hidden=\"true\">&laquo;</span>\r\n                            </a>\r\n                        </li>\r\n                        <li><a href=\"#\">1</a></li>\r\n                        <li><a href=\"#\">2</a></li>\r\n                        <li><a href=\"#\">3</a></li>\r\n                        <li><a href=\"#\">4</a></li>\r\n                        <li><a href=\"#\">5</a></li>\r\n                        <li>\r\n                            <a href=\"#\" aria-label=\"Next\">\r\n                                <span aria-hidden=\"true\">&raquo;</span>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div id=\"asc_editor\" class=\"tab-pane fade\">\r\n        <div class=\"col-md-12\">\r\n            <!--return button-->\r\n            <div class=\"row\">\r\n                <a id=\"btnGoBack\" (click)=\"goBack()\" class=\"btn btn-default btn-sm\" data-toggle=\"tab\" data-target=\"#asc_default\"><i class=\"fa fa-chevron-left\"></i>&nbsp;Go Back</a>\r\n            </div>\r\n            <br />\r\n            <!--header-->\r\n            <div class=\"row\">\r\n                <!--for example you are in adding mode, span.add should be displayed while span.edit will be hidden-->\r\n                <h4>\r\n                  <span class=\"add\" *ngIf=\"mode==0\"><i class=\"fa fa-plus\"></i>&nbsp;New Record</span>\r\n                  <span class=\"edit\" *ngIf=\"mode==1\"><i class=\"fa fa-edit\"></i>&nbsp;Edit Details</span>\r\n                </h4>\r\n            </div>\r\n            <br />\r\n            <!--fields-->\r\n            <!--<div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Associate Id</label>\r\n                <div class=\"col-md-4\">\r\n                    <input [(ngModel)]=\"associate.AssociateID\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />-->\r\n            <div class=\"row\" *ngIf=\"mode==0\">\r\n                <label class=\"col-md-2 control-label\">Full Name</label>\r\n                <div class=\"col-md-4\">\r\n                    <select class=\"form-control input-sm\" [(ngModel)]=\"associate.UserName\">\r\n                        <option value=\"-1\"  disabled selected> Select Name </option>\r\n                        <option *ngFor=\"let x of getUnusedUsers()\" [value]=\"x.user_name\"> {{x.user_first_name+\" \" +x.user_last_name}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br *ngIf=\"mode==0\"/>\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Username</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UserName + ' - ' +getFullName(associate.UserName) }}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Phone Number</label>\r\n                <div class=\"col-md-4\">\r\n                    <input maxlength=\"20\" [(ngModel)]=\"associate.PhoneNumber\" type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">VPN Capable</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.VPN\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Department</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.DepartmentID\" class=\"form-control input-sm\">\r\n                        <option value=\"-1\"  disabled selected> Select Department </option>\r\n                        <option *ngFor=\"let x of getActiveDepartments()\" [value]=\"x.DepartmentID\"> {{x.DepartmentDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Location</label>\r\n                <div class=\"col-md-4\">\r\n                    <select [(ngModel)]=\"associate.LocationID\" class=\"form-control input-sm\">\r\n                        <option value=\"-1\"  disabled selected> Select Location </option>\r\n                        <option *ngFor=\"let x of getActiveLocations()\" [value]=\"x.LocationID\"> {{x.LocationDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Updated On</label>\r\n                <div class=\"col-md-4\">\r\n                    <input value=\"{{associate.UpdatedOn | date: 'dd/MM/yyyy'}}\" readonly type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <label class=\"col-md-2 control-label\">Is Active</label>\r\n                <div class=\"col-md-4\">\r\n                    <label class=\"switch\">\r\n                        <input type=\"checkbox\" [(ngModel)]=\"associate.IsActive\" />\r\n                        <div class=\"slider round\"></div>\r\n                    </label>\r\n                    <br />\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"save-bar\">\r\n           <save-bar [buttonMode]=\"mode\" (triggerParentFunc)=\"saveAssociate()\"></save-bar>\r\n            <!--save bar component here-->\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1663,7 +1714,7 @@ var VWAssociateComponent = (function () {
         this.setUserSvc = setUserSvc;
         this.set_Users = [];
         this.associates = [];
-        this.associate = new __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["f" /* Associate */](0, '', '', false, 0, 0, new Date, true);
+        this.associate = new __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["j" /* Associate */](0, '', '', false, 0, 0, new Date, true);
         this.locations = [];
         this.departments = [];
         this.mode = 0; //1 if update 0 if new entry
@@ -1745,7 +1796,7 @@ var VWAssociateComponent = (function () {
     };
     VWAssociateComponent.prototype.cleanUp = function () {
         this.getDependencies();
-        this.associate = new __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["f" /* Associate */](0, '', '', false, 0, 0, new Date, true);
+        this.associate = new __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["j" /* Associate */](0, '', '', false, 0, 0, new Date, true);
     };
     VWAssociateComponent.prototype.saveAssociate = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -1879,7 +1930,7 @@ var VWDepartmentComponent = (function () {
         this.departmentSkillsetSvc = departmentSkillsetSvc;
         this.assocDeptSkillsetSvc = assocDeptSkillsetSvc;
         this.viewMode = 0;
-        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["e" /* Department */](0, '', true);
+        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["i" /* Department */](0, '', true);
         this.departments = [];
         this.departmentSkillsets = [];
         this.associateDepartmentSkillset = [];
@@ -1887,7 +1938,7 @@ var VWDepartmentComponent = (function () {
         this.goBack();
     }
     VWDepartmentComponent.prototype.newDetails = function () {
-        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["e" /* Department */](0, '', true);
+        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["i" /* Department */](0, '', true);
     };
     VWDepartmentComponent.prototype.editDetails = function (dept) {
         this.viewMode = 1;
@@ -1968,7 +2019,7 @@ var VWDepartmentComponent = (function () {
         this.getDepartments();
         this.getDepartmentSkillsets();
         this.getAssociateDepartmentSkillsets();
-        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["e" /* Department */](0, '', true);
+        this.department = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["i" /* Department */](0, '', true);
     };
     VWDepartmentComponent.prototype.saveDepartment = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -2078,7 +2129,8 @@ module.exports = "<div class=\"tab-content\">\r\n    <div id=\"dep_skill_default
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VWDepartmentSkillsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2129,15 +2181,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var VWDepartmentSkillsComponent = (function () {
-    function VWDepartmentSkillsComponent(deptSvc, skillsetSvc, departmentSkillsetSvc) {
+    function VWDepartmentSkillsComponent(deptSvc, skillsetSvc, departmentSkillsetSvc, assocDeptSkillsetSvc) {
         this.deptSvc = deptSvc;
         this.skillsetSvc = skillsetSvc;
         this.departmentSkillsetSvc = departmentSkillsetSvc;
+        this.assocDeptSkillsetSvc = assocDeptSkillsetSvc;
+        this.associateDepartmentSkillset = [];
         this.departments = [];
-        this.departmentSkillsets = [];
         this.skillsets = [];
+        //gets the previous state
+        this.departmentSkillsets = [];
+        //gets the actual state
         this.selectedSkillsets = [];
+        //for deletion
+        this.deleteDepartmentSkillsets = [];
+        //for new entry
+        this.newDepartmentSkillsets = [];
         this.getDepartments();
     }
     VWDepartmentSkillsComponent.prototype.ngOnInit = function () {
@@ -2155,6 +2216,22 @@ var VWDepartmentSkillsComponent = (function () {
                     case 1:
                         _a.departments = _b.sent();
                         this.departments = this.departments.filter(function (x) { return x.IsActive == true; });
+                        this.getAssociateDepartmentSkillsets();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    VWDepartmentSkillsComponent.prototype.getAssociateDepartmentSkillsets = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.assocDeptSkillsetSvc.getAssociateDeptSkillsets()];
+                    case 1:
+                        _a.associateDepartmentSkillset = _b.sent();
                         return [2 /*return*/];
                 }
             });
@@ -2187,7 +2264,7 @@ var VWDepartmentSkillsComponent = (function () {
                         //2. loop skillsets to custom array
                         for (i = 0; i < this.skillsets.length; i++) {
                             console.log(deptID + " - " + this.skillsets[i].SkillsetID);
-                            this.selectedSkillsets.push(new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["a" /* SelectedSkillset */](new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["b" /* DepartmentSkillsets1 */](0, deptID, this.skillsets[i].SkillsetID), false, this.skillsets[i].SkillsetDescr));
+                            this.selectedSkillsets.push(new __WEBPACK_IMPORTED_MODULE_5__com_entities_entities__["e" /* SelectedSkillset */](new __WEBPACK_IMPORTED_MODULE_5__com_entities_entities__["f" /* DepartmentSkillsets1 */](0, deptID, this.skillsets[i].SkillsetID), false, this.skillsets[i].SkillsetDescr));
                         }
                         this.getDepartmentSkillsets(deptID).then(function () {
                             _this.compareSelectedSkillsets();
@@ -2252,39 +2329,142 @@ var VWDepartmentSkillsComponent = (function () {
     };
     VWDepartmentSkillsComponent.prototype.saveDepartmentSkillset = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var i, departmentSkillset, i, selectedSkillset;
+            var _this = this;
+            return __generator(this, function (_a) {
+                //delete all departmentSkillsets
+                //previous code -- eros 07-2017
+                // for (var i = 0; i < this.departmentSkillsets.length; i++){
+                //   var departmentSkillset=this.departmentSkillsets[i];
+                //   await this.departmentSkillsetSvc.DeleteDepartmentSkillset(departmentSkillset.DepartmentSkillsetID);
+                //   //create delete here for assocdepartmentskillset
+                // }
+                //addDepartmentSkillset
+                //previous code -- eros 07-2017
+                // for (var i = 0; i < this.selectedSkillsets.length; i++){
+                //   var selectedSkillset=this.selectedSkillsets[i];
+                //   if(selectedSkillset.IsSelected==true){
+                //     await this.departmentSkillsetSvc.postDepartmentSkillset(selectedSkillset.departmentSkillset);
+                //   }
+                // }
+                this.getDepartmentSkillsetsInSelectedSkillset().then(function () {
+                    _this.deleteDepartmentSkillset().then(function () {
+                        _this.addNewDepartmentSkillset();
+                    });
+                });
+                alert("Record has been successfully updated.");
+                return [2 /*return*/];
+            });
+        });
+    };
+    VWDepartmentSkillsComponent.prototype.getDepartmentSkillsetsInSelectedSkillset = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, selectedSkillset;
+            return __generator(this, function (_a) {
+                for (i = 0; i < this.selectedSkillsets.length; i++) {
+                    selectedSkillset = this.selectedSkillsets[i];
+                    this.deleteDepartmentSkillsets.push(selectedSkillset.departmentSkillset);
+                    selectedSkillset.IsSelected == true ? this.newDepartmentSkillsets.push(selectedSkillset.departmentSkillset) : null;
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    VWDepartmentSkillsComponent.prototype.deleteDepartmentSkillset = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, departmentSkillset, _a, i, departmentSkillset;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        i = 0;
+                        _b.label = 1;
+                    case 1:
+                        if (!(i < this.departmentSkillsets.length)) return [3 /*break*/, 4];
+                        departmentSkillset = this.departmentSkillsets[i];
+                        _a = this;
+                        return [4 /*yield*/, this.deleteDepartmentSkillsets.filter(function (x) { return x.DepartmentID != departmentSkillset.DepartmentID &&
+                                x.SkillsetID != departmentSkillset.SkillsetID; })];
+                    case 2:
+                        _a.deleteDepartmentSkillsets = _b.sent();
+                        _b.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        i = 0;
+                        _b.label = 5;
+                    case 5:
+                        if (!(i < this.deleteDepartmentSkillsets.length)) return [3 /*break*/, 8];
+                        departmentSkillset = this.deleteDepartmentSkillsets[i];
+                        //delete to associateDepartmentSkillset
+                        this.deleteAssociateDepartmentSkillset(this.associateDepartmentSkillset.filter(function (x) { return x.DepartmentSkillsetID = departmentSkillset.DepartmentSkillsetID; }));
+                        return [4 /*yield*/, this.departmentSkillsetSvc.DeleteDepartmentSkillset(departmentSkillset.DepartmentSkillsetID)];
+                    case 6:
+                        _b.sent();
+                        _b.label = 7;
+                    case 7:
+                        i++;
+                        return [3 /*break*/, 5];
+                    case 8: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    VWDepartmentSkillsComponent.prototype.deleteAssociateDepartmentSkillset = function (ads) {
+        return __awaiter(this, void 0, void 0, function () {
+            var i;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         i = 0;
                         _a.label = 1;
                     case 1:
-                        if (!(i < this.departmentSkillsets.length)) return [3 /*break*/, 4];
-                        departmentSkillset = this.departmentSkillsets[i];
-                        return [4 /*yield*/, this.departmentSkillsetSvc.DeleteDepartmentSkillset(departmentSkillset.DepartmentSkillsetID)];
+                        if (!(i < ads.length)) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.assocDeptSkillsetSvc.DeleteAssociateDeptSkillset(ads[i].AssociateDepartmentSkillsetID)];
                     case 2:
                         _a.sent();
                         _a.label = 3;
                     case 3:
                         i++;
                         return [3 /*break*/, 1];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    VWDepartmentSkillsComponent.prototype.addNewDepartmentSkillset = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var i, departmentSkillset, _a, i, selectedSkillset;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        i = 0;
+                        _b.label = 1;
+                    case 1:
+                        if (!(i < this.deleteDepartmentSkillsets.length)) return [3 /*break*/, 4];
+                        departmentSkillset = this.deleteDepartmentSkillsets[i];
+                        _a = this;
+                        return [4 /*yield*/, this.newDepartmentSkillsets.filter(function (x) { return x.DepartmentID != departmentSkillset.DepartmentID &&
+                                x.SkillsetID != departmentSkillset.SkillsetID; })];
+                    case 2:
+                        _a.newDepartmentSkillsets = _b.sent();
+                        _b.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
                     case 4:
                         i = 0;
-                        _a.label = 5;
+                        _b.label = 5;
                     case 5:
-                        if (!(i < this.selectedSkillsets.length)) return [3 /*break*/, 8];
-                        selectedSkillset = this.selectedSkillsets[i];
-                        if (!(selectedSkillset.IsSelected == true)) return [3 /*break*/, 7];
-                        return [4 /*yield*/, this.departmentSkillsetSvc.postDepartmentSkillset(selectedSkillset.departmentSkillset)];
+                        if (!(i < this.newDepartmentSkillsets.length)) return [3 /*break*/, 8];
+                        selectedSkillset = this.newDepartmentSkillsets[i];
+                        return [4 /*yield*/, this.departmentSkillsetSvc.postDepartmentSkillset(selectedSkillset)];
                     case 6:
-                        _a.sent();
-                        _a.label = 7;
+                        _b.sent();
+                        _b.label = 7;
                     case 7:
                         i++;
                         return [3 /*break*/, 5];
-                    case 8:
-                        alert("Record has been successfully updated.");
-                        return [2 /*return*/];
+                    case 8: return [2 /*return*/];
                 }
             });
         });
@@ -2296,10 +2476,10 @@ VWDepartmentSkillsComponent = __decorate([
         selector: 'vw-dept',
         template: __webpack_require__("./src/app/mod_maintenance/department_skills/vw_department_skills.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]) === "function" && _d || Object])
 ], VWDepartmentSkillsComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=vw_department_skills.component.js.map
 
 /***/ }),
@@ -2370,13 +2550,13 @@ var VWLocationComponent = (function () {
     function VWLocationComponent(locSvc) {
         this.locSvc = locSvc;
         this.viewMode = 0;
-        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["d" /* Location */](0, '', true);
+        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["h" /* Location */](0, '', true);
         this.locations = [];
         this.mode = 0;
         this.goBack();
     }
     VWLocationComponent.prototype.newDetails = function () {
-        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["d" /* Location */](0, '', true);
+        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["h" /* Location */](0, '', true);
     };
     VWLocationComponent.prototype.editDetails = function (loc) {
         this.viewMode = 1;
@@ -2397,7 +2577,7 @@ var VWLocationComponent = (function () {
         this.saveLocation();
     };
     VWLocationComponent.prototype.goBack = function () {
-        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["d" /* Location */](0, '', true);
+        this.location = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["h" /* Location */](0, '', true);
         this.getLocations();
         this.mode = 0;
     };
@@ -2740,7 +2920,7 @@ var VWSkillsetComponent = (function () {
         this.departmentSkillsetSvc = departmentSkillsetSvc;
         this.assocDeptSkillsetSvc = assocDeptSkillsetSvc;
         this.viewMode = 0;
-        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["c" /* Skillset */](0, '', true);
+        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["g" /* Skillset */](0, '', true);
         this.skillsets = [];
         this.departmentSkillsets = [];
         this.associateDepartmentSkillset = [];
@@ -2748,7 +2928,7 @@ var VWSkillsetComponent = (function () {
         this.goBack();
     }
     VWSkillsetComponent.prototype.newDetails = function () {
-        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["c" /* Skillset */](0, '', true);
+        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["g" /* Skillset */](0, '', true);
     };
     VWSkillsetComponent.prototype.editDetails = function (skillset) {
         this.viewMode = 1;
@@ -2830,7 +3010,7 @@ var VWSkillsetComponent = (function () {
         this.getDepartmentSkillsets();
         this.getAssociateDepartmentSkillsets();
         this.mode = 0;
-        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["c" /* Skillset */](0, '', true);
+        this.skillset = new __WEBPACK_IMPORTED_MODULE_4__com_entities_entities__["g" /* Skillset */](0, '', true);
     };
     VWSkillsetComponent.prototype.saveSkillset = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -2925,10 +3105,887 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "./src/app/mod_search/export/exportassociate.reports.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__ = __webpack_require__("./src/app/com_services/location.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__ = __webpack_require__("./src/app/com_services/set_user.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExportAssociateReport; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+//services
+
+
+
+
+
+
+
+//entities
+
+var ExportAssociateReport = (function () {
+    function ExportAssociateReport(associateSvc, departmentSvc, locationSvc, skillsetSvc, setUserSvc, departmentSkillsetSvc, assocDeptSkillsetSvc) {
+        this.associateSvc = associateSvc;
+        this.departmentSvc = departmentSvc;
+        this.locationSvc = locationSvc;
+        this.skillsetSvc = skillsetSvc;
+        this.setUserSvc = setUserSvc;
+        this.departmentSkillsetSvc = departmentSkillsetSvc;
+        this.assocDeptSkillsetSvc = assocDeptSkillsetSvc;
+        this.associateReport = new __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__["a" /* AssociateRpt */]('', '', '', '', '', '', []);
+        this.setUsers = [];
+    }
+    ExportAssociateReport.prototype.getAssociateReport = function (associateID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var associatesDepartmentSkillsets, departmentSkillsets, associate, currentDepartment, currentLocation, i, _a, _b, _loop_1, this_1, a, _c, _d, _e, _f, _g;
+            return __generator(this, function (_h) {
+                switch (_h.label) {
+                    case 0:
+                        this.associateReport = new __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__["a" /* AssociateRpt */]('', '', '', '', '', '', []);
+                        return [4 /*yield*/, this.getAssociateDepartmentSkillsets(associateID)];
+                    case 1:
+                        associatesDepartmentSkillsets = _h.sent();
+                        departmentSkillsets = [];
+                        return [4 /*yield*/, this.getAssociateDetails(associateID)];
+                    case 2:
+                        associate = _h.sent();
+                        this.getSetUser();
+                        i = 0;
+                        _h.label = 3;
+                    case 3:
+                        if (!(i < associatesDepartmentSkillsets.length)) return [3 /*break*/, 6];
+                        _b = (_a = departmentSkillsets).push;
+                        return [4 /*yield*/, this.getDepartmentSkillsets(associatesDepartmentSkillsets[i].DepartmentSkillsetID)];
+                    case 4:
+                        _b.apply(_a, [_h.sent()]);
+                        _h.label = 5;
+                    case 5:
+                        i++;
+                        return [3 /*break*/, 3];
+                    case 6:
+                        _loop_1 = function () {
+                            var tempdsTobeRemoved;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        tempdsTobeRemoved = departmentSkillsets[0];
+                                        return [4 /*yield*/, this_1.mergeSkillstoDepartment(departmentSkillsets, tempdsTobeRemoved.DepartmentID)];
+                                    case 1:
+                                        a = _a.sent();
+                                        return [4 /*yield*/, departmentSkillsets.filter(function (x) { return x.DepartmentID != tempdsTobeRemoved.DepartmentID; })];
+                                    case 2:
+                                        departmentSkillsets = _a.sent();
+                                        this_1.associateReport.DepartmentSkills.push(a);
+                                        return [2 /*return*/];
+                                }
+                            });
+                        };
+                        this_1 = this;
+                        _h.label = 7;
+                    case 7:
+                        if (!(departmentSkillsets.length > 0)) return [3 /*break*/, 9];
+                        return [5 /*yield**/, _loop_1()];
+                    case 8:
+                        _h.sent();
+                        return [3 /*break*/, 7];
+                    case 9: return [4 /*yield*/, this.getDepartment(associate.DepartmentID)];
+                    case 10:
+                        //getting current department and location
+                        currentDepartment = _h.sent();
+                        return [4 /*yield*/, this.getLocation(associate.LocationID)];
+                    case 11:
+                        currentLocation = _h.sent();
+                        //fill details of the associateReport
+                        this.associateReport.Name = this.getFullName(associate.UserName);
+                        _c = this.associateReport;
+                        return [4 /*yield*/, currentDepartment.DepartmentDescr];
+                    case 12:
+                        _c.CurrentDepartment = _h.sent();
+                        _d = this.associateReport;
+                        return [4 /*yield*/, currentLocation.LocationDescr];
+                    case 13:
+                        _d.CurrentLocation = _h.sent();
+                        _e = this.associateReport;
+                        return [4 /*yield*/, associate.PhoneNumber];
+                    case 14:
+                        _e.PhoneNumber = _h.sent();
+                        _f = this.associateReport;
+                        return [4 /*yield*/, associate.VPN];
+                    case 15:
+                        _f.VPN = (_h.sent()) ? 'Yes' : 'No';
+                        _g = this.associateReport;
+                        return [4 /*yield*/, ''];
+                    case 16:
+                        _g.LastUpdated = _h.sent();
+                        return [2 /*return*/, new Promise(function (resolve) {
+                                return resolve(_this.associateReport);
+                            })];
+                }
+            });
+        });
+    };
+    ExportAssociateReport.prototype.getAssociateDetails = function (assocID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.associateSvc.getAssociate(assocID));
+                    })];
+            });
+        });
+    };
+    ExportAssociateReport.prototype.getSetUser = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.setUserSvc.getSet_Users()];
+                    case 1:
+                        _a.setUsers = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //step 1: get ads[] to get the departmentskillsets[] of an associate
+    ExportAssociateReport.prototype.getAssociateDepartmentSkillsets = function (associateID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var ads;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.assocDeptSkillsetSvc.getAssociateDeptSkillsets()];
+                    case 1:
+                        ads = _a.sent();
+                        ads = ads.filter(function (x) { return x.AssociateID == associateID; });
+                        return [2 /*return*/, new Promise(function (resolve) {
+                                return resolve(ads);
+                            })];
+                }
+            });
+        });
+    };
+    //step 2: get departmentskillsets where ads[i].departmentskillsetID==dsid
+    ExportAssociateReport.prototype.getDepartmentSkillsets = function (dsID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.departmentSkillsetSvc.getDepartmentSkillset(dsID.toString()));
+                    })];
+            });
+        });
+    };
+    //step 3: get departments 
+    ExportAssociateReport.prototype.getDepartment = function (departmentID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.departmentSvc.getDepartment(departmentID));
+                    })];
+            });
+        });
+    };
+    ExportAssociateReport.prototype.getLocation = function (locationID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.locationSvc.getLocation(locationID));
+                    })];
+            });
+        });
+    };
+    //get the skillsets from departmentskillset where departmentskillset.skillsetID==skillsetID
+    ExportAssociateReport.prototype.getSkillset = function (skillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.skillsetSvc.getSkillset(skillsetID));
+                    })];
+            });
+        });
+    };
+    //match departmentSkillsets to its departments
+    ExportAssociateReport.prototype.filterDepartmentSkillset = function (ds, deptID) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(ds.filter(function (x) { return x.DepartmentID == deptID; }));
+                    })];
+            });
+        });
+    };
+    ExportAssociateReport.prototype.mergeSkillstoDepartment = function (departmentskillset, departmentID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tempDS, tempDepartment, departmentSKills, i, _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        tempDS = departmentskillset.filter(function (x) { return x.DepartmentID == departmentID; });
+                        return [4 /*yield*/, this.departmentSvc.getDepartment(departmentID)];
+                    case 1:
+                        tempDepartment = _c.sent();
+                        departmentSKills = new __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__["d" /* DepartmentSkills */]([], '');
+                        departmentSKills.DepartmentName = tempDepartment.DepartmentDescr;
+                        i = 0;
+                        _c.label = 2;
+                    case 2:
+                        if (!(i < tempDS.length)) return [3 /*break*/, 5];
+                        _b = (_a = departmentSKills.Skills).push;
+                        return [4 /*yield*/, this.getSkillset(tempDS[i].SkillsetID)];
+                    case 3:
+                        _b.apply(_a, [_c.sent()]);
+                        _c.label = 4;
+                    case 4:
+                        i++;
+                        return [3 /*break*/, 2];
+                    case 5: return [2 /*return*/, new Promise(function (resolve) {
+                            return resolve(departmentSKills);
+                        })];
+                }
+            });
+        });
+    };
+    ExportAssociateReport.prototype.getFullName = function (username) {
+        var user = this.setUsers.find(function (x) { return x.user_name == username; });
+        // //console.log(user);
+        return user == null ? null : user.user_first_name + ' ' + user.user_last_name;
+    };
+    return ExportAssociateReport;
+}());
+ExportAssociateReport = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]) === "function" && _g || Object])
+], ExportAssociateReport);
+
+var _a, _b, _c, _d, _e, _f, _g;
+//# sourceMappingURL=exportassociate.reports.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod_search/export/exportskillset.reports.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__ = __webpack_require__("./src/app/com_services/location.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__ = __webpack_require__("./src/app/com_services/set_user.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ExportSkillsetReport; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+
+//services
+
+
+
+
+
+
+
+//entities
+
+var ExportSkillsetReport = (function () {
+    function ExportSkillsetReport(associateSvc, departmentSvc, locationSvc, skillsetSvc, setUserSvc, departmentSkillsetSvc, assocDeptSkillsetSvc) {
+        this.associateSvc = associateSvc;
+        this.departmentSvc = departmentSvc;
+        this.locationSvc = locationSvc;
+        this.skillsetSvc = skillsetSvc;
+        this.setUserSvc = setUserSvc;
+        this.departmentSkillsetSvc = departmentSkillsetSvc;
+        this.assocDeptSkillsetSvc = assocDeptSkillsetSvc;
+        this.associateReport = new __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__["a" /* AssociateRpt */]('', '', '', '', '', '', []);
+        this.associates = [];
+        this.setUsers = [];
+    }
+    ExportSkillsetReport.prototype.getSkillsetReport = function (skillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var skillset, associatedepartmentskillset, departmentSkillsets, i, _a, _b, _c, _d;
+            return __generator(this, function (_e) {
+                switch (_e.label) {
+                    case 0:
+                        this.skillsetRpt = new __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__["b" /* SkillsetRpt */]('', []);
+                        this.associates = [];
+                        return [4 /*yield*/, this.getSetUser()];
+                    case 1:
+                        _e.sent();
+                        return [4 /*yield*/, this.getSkillset(skillsetID)];
+                    case 2:
+                        skillset = _e.sent();
+                        associatedepartmentskillset = [];
+                        return [4 /*yield*/, this.getDepartmentSkillsets(skillsetID)];
+                    case 3:
+                        departmentSkillsets = _e.sent();
+                        i = 0;
+                        _e.label = 4;
+                    case 4:
+                        if (!(i < departmentSkillsets.length)) return [3 /*break*/, 7];
+                        _b = (_a = associatedepartmentskillset).concat;
+                        return [4 /*yield*/, this.getAssociateDepartmentSkillset(departmentSkillsets[i].DepartmentSkillsetID)];
+                    case 5:
+                        //get associate from associatedepartmentskillset
+                        associatedepartmentskillset = _b.apply(_a, [_e.sent()]);
+                        _e.label = 6;
+                    case 6:
+                        i++;
+                        return [3 /*break*/, 4];
+                    case 7: 
+                    //getting the associate
+                    return [4 /*yield*/, this.getAssociateInfo(associatedepartmentskillset)];
+                    case 8:
+                        //getting the associate
+                        _e.sent();
+                        _c = this.skillsetRpt;
+                        return [4 /*yield*/, this.associates];
+                    case 9:
+                        _c.Associates = _e.sent();
+                        _d = this.skillsetRpt;
+                        return [4 /*yield*/, skillset.SkillsetDescr];
+                    case 10:
+                        _d.Skillset = _e.sent();
+                        return [2 /*return*/, new Promise(function (resolve) {
+                                return resolve(_this.skillsetRpt);
+                            })];
+                }
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getAssociateInfo = function (assocDeptSkillsets) {
+        return __awaiter(this, void 0, void 0, function () {
+            var associateDetails, assocDeptSkillset, associate, department, location, _a, _b, _c;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        associateDetails = new __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__["c" /* AssociateDetails */]('', '', '', '', '');
+                        console.log(assocDeptSkillsets);
+                        _d.label = 1;
+                    case 1:
+                        if (!(assocDeptSkillsets.length > 0)) return [3 /*break*/, 8];
+                        assocDeptSkillset = assocDeptSkillsets.pop();
+                        return [4 /*yield*/, this.getAssociateDetails(assocDeptSkillset.AssociateID)];
+                    case 2:
+                        associate = _d.sent();
+                        return [4 /*yield*/, this.getDepartment(associate.DepartmentID)];
+                    case 3:
+                        department = _d.sent();
+                        return [4 /*yield*/, this.getLocation(associate.LocationID)];
+                    case 4:
+                        location = _d.sent();
+                        _a = associateDetails;
+                        return [4 /*yield*/, department.DepartmentDescr];
+                    case 5:
+                        _a.Department = _d.sent();
+                        _b = associateDetails;
+                        return [4 /*yield*/, location.LocationDescr];
+                    case 6:
+                        _b.Location = _d.sent();
+                        _c = associateDetails;
+                        return [4 /*yield*/, this.getFullName(associate.UserName)];
+                    case 7:
+                        _c.Name = _d.sent();
+                        associateDetails.VPN = associate.VPN ? 'Yes' : 'No';
+                        associateDetails.UpdatedOn = '';
+                        this.associates.push(associateDetails);
+                        associateDetails = new __WEBPACK_IMPORTED_MODULE_8__com_entities_entities__["c" /* AssociateDetails */]('', '', '', '', '');
+                        assocDeptSkillsets = assocDeptSkillsets.filter(function (x) { return x.AssociateID != assocDeptSkillset.AssociateID; });
+                        return [3 /*break*/, 1];
+                    case 8: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getDepartmentSkillsets = function (skillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var departmentSkillsets;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.departmentSkillsetSvc.getDepartmentSkillsets()];
+                    case 1:
+                        departmentSkillsets = _a.sent();
+                        return [2 /*return*/, new Promise(function (resolve) {
+                                return resolve(departmentSkillsets.filter(function (x) { return x.SkillsetID == skillsetID; }));
+                            })];
+                }
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getAssociateDetails = function (assocID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.associateSvc.getAssociate(assocID));
+                    })];
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getSetUser = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this;
+                        return [4 /*yield*/, this.setUserSvc.getSet_Users()];
+                    case 1:
+                        _a.setUsers = _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getFullName = function (username) {
+        var user = this.setUsers.find(function (x) { return x.user_name == username; });
+        // //console.log(user);
+        return user == null ? null : user.user_first_name + ' ' + user.user_last_name;
+    };
+    ExportSkillsetReport.prototype.getDepartment = function (departmentID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.departmentSvc.getDepartment(departmentID));
+                    })];
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getLocation = function (locationID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.locationSvc.getLocation(locationID));
+                    })];
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getSkillset = function (skillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve) {
+                        return resolve(_this.skillsetSvc.getSkillset(skillsetID));
+                    })];
+            });
+        });
+    };
+    ExportSkillsetReport.prototype.getAssociateDepartmentSkillset = function (departmentSkillsetID) {
+        return __awaiter(this, void 0, void 0, function () {
+            var associateDepartmentSkillset;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.assocDeptSkillsetSvc.getAssociateDeptSkillsets()];
+                    case 1:
+                        associateDepartmentSkillset = _a.sent();
+                        associateDepartmentSkillset = associateDepartmentSkillset.filter(function (x) { return x.DepartmentSkillsetID == departmentSkillsetID; });
+                        return [2 /*return*/, new Promise(function (resolve) {
+                                return resolve(associateDepartmentSkillset);
+                            })];
+                }
+            });
+        });
+    };
+    return ExportSkillsetReport;
+}());
+ExportSkillsetReport = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]) === "function" && _g || Object])
+], ExportSkillsetReport);
+
+var _a, _b, _c, _d, _e, _f, _g;
+//# sourceMappingURL=exportskillset.reports.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-associate/department-skills/department-skills.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-associate/department-skills/department-skills.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"col-md-3\">\r\n  <table class=\"table\">\r\n    <thead>\r\n      <tr>\r\n          <th>{{departmentSkill.DepartmentName}}</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody style=\"background-color:white;\">\r\n      <tr *ngFor=\"let y of departmentSkill.Skills\">\r\n          <td>{{y.SkillsetDescr}}</td>\r\n      </tr>\r\n    </tbody>\r\n  </table>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-associate/department-skills/department-skills.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DepartmentSkillsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DepartmentSkillsComponent = (function () {
+    function DepartmentSkillsComponent() {
+    }
+    DepartmentSkillsComponent.prototype.ngOnInit = function () {
+    };
+    return DepartmentSkillsComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["d" /* DepartmentSkills */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["d" /* DepartmentSkills */]) === "function" && _a || Object)
+], DepartmentSkillsComponent.prototype, "departmentSkill", void 0);
+DepartmentSkillsComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'department-skills',
+        template: __webpack_require__("./src/app/mod_search/search-associate/department-skills/department-skills.component.html"),
+        styles: [__webpack_require__("./src/app/mod_search/search-associate/department-skills/department-skills.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], DepartmentSkillsComponent);
+
+var _a;
+//# sourceMappingURL=department-skills.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-associate/search-associate.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-associate/search-associate.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!--associate name-->\r\n<div class=\"col-md-12\">\r\n    <h4>{{associate.Name}}</h4>\r\n    <br />\r\n</div>\r\n<!--details-->\r\n<div class=\"col-md-12\">\r\n    <table class=\"table table-striped table-hover input-sm\">\r\n        <tbody>\r\n            <tr>\r\n                <th>Best Phone Number:</th> <!--variable-->\r\n                <td>{{associate.PhoneNumber}}</td> <!--value-->\r\n                <td>&nbsp;</td><!--separator-->\r\n                <th>VPN:</th> <!--variable-->\r\n                <td>{{associate.VPN}}</td> <!--value-->\r\n            </tr>\r\n            <tr>\r\n                <th>Current Department:</th> <!--variable-->\r\n                <td>{{associate.CurrentDepartment}}</td> <!--value-->\r\n                <td>&nbsp;</td><!--separator-->\r\n                <th>Last Updated:</th> <!--variable-->\r\n                <td>{{associate.LastUpdated}}</td> <!--value-->\r\n            </tr>\r\n            <tr>\r\n                <th>Location:</th> <!--variable-->\r\n                <td>{{associate.CurrentLocation}}</td> <!--value-->\r\n                <td>&nbsp;</td><!--separator-->\r\n                <th>&nbsp;</th> <!--blank field-->\r\n                <td>&nbsp;</td> <!--blank field-->\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n<div class=\"col-md-12\">\r\n    <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />  \r\n</div>\r\n<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n        <div class=\"searchByAssocDepartmentSection\" style=\"max-height: 500px; overflow-y: auto; overflow-x: hidden;\">\r\n            <div class=\"row\" *ngFor=\"let x of deptSkillsGrp\">\r\n                <div class=\"col-md-12\">\r\n                    <department-skills [departmentSkill]=\"y\" *ngFor=\"let y of x\"></department-skills>\r\n                </div>\r\n            </div>\r\n        </div>\r\n            <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />  \r\n\r\n    </div>\r\n    \r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-associate/search-associate.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__ = __webpack_require__("./src/app/com_entities/entities.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchAssociateComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SearchAssociateComponent = (function () {
+    function SearchAssociateComponent() {
+        this.deptSkillsGrp = [];
+    }
+    SearchAssociateComponent.prototype.ngOnInit = function () {
+        this.sliceToFour();
+    };
+    //separate departmentskills to 4 parts. 
+    SearchAssociateComponent.prototype.sliceToFour = function () {
+        this.deptSkillsGrp = [];
+        var ctr = 0, listCtr = 0;
+        var tempList = [];
+        for (var _i = 0, _a = this.associate.DepartmentSkills; _i < _a.length; _i++) {
+            var app = _a[_i];
+            tempList.push(app);
+            ctr += 1;
+            listCtr += 1;
+            if (ctr == 4 || listCtr == this.associate.DepartmentSkills.length) {
+                this.deptSkillsGrp.push(tempList);
+                ctr = 0;
+                tempList = [];
+            }
+        }
+    };
+    return SearchAssociateComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["a" /* AssociateRpt */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_entities_entities__["a" /* AssociateRpt */]) === "function" && _a || Object)
+], SearchAssociateComponent.prototype, "associate", void 0);
+SearchAssociateComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'search-associate',
+        template: __webpack_require__("./src/app/mod_search/search-associate/search-associate.component.html"),
+        styles: [__webpack_require__("./src/app/mod_search/search-associate/search-associate.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], SearchAssociateComponent);
+
+var _a;
+//# sourceMappingURL=search-associate.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-department/search-department.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-department/search-department.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n        <div style=\"max-height: 600px; overflow-y: auto; overflow-x: hidden;\">\r\n            <!--repeating-->\r\n            <div class=\"row\">\r\n                <!--skillset-->\r\n                <div class=\"col-md-12\">\r\n                    <h4>Contact Center</h4>\r\n                    <br />\r\n                </div>\r\n                <!--details-->\r\n                <!--repeating-->\r\n                <div class=\"col-md-12\">\r\n                    <table class=\"table table-striped table-hover input-sm\">\r\n                        <tbody>\r\n                            <tr>\r\n                                <th class=\"col-md-1\">Name:</th>\r\n                                <td class=\"col-md-2\">Michael Petrowski</td> <!--assoc name-->\r\n                                <th class=\"col-md-1\">Location:</th>\r\n                                <td class=\"col-md-2\">Tempe</td><!--location-->\r\n                                <th class=\"col-md-1\">VPN</th>\r\n                                <td class=\"col-md-2\">Yes</td><!--vpn-->\r\n                                <th class=\"col-md-3\">Last updated on April 20, 2017</th><!--last updated date-->\r\n                            </tr>\r\n                            <tr>\r\n                                <td colspan=\"3\" class=\"col-md-12\">\r\n                                    <table class=\"table table-striped table-hover input-sm\">\r\n                                        <thead>\r\n                                            <tr>\r\n                                                <th>Skills</th>\r\n                                            </tr>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr><td>Matulog</td></tr>\r\n                                            <tr><td>Kumaen</td></tr>\r\n                                            <tr><td>Maglaro</td></tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n                <div class=\"col-md-12\">\r\n                    <table class=\"table table-striped table-hover input-sm\">\r\n                        <tbody>\r\n                            <tr>\r\n                                <th class=\"col-md-1\">Name:</th>\r\n                                <td class=\"col-md-2\">Charlotte Church</td> <!--assoc name-->\r\n                                <th class=\"col-md-1\">Location:</th>\r\n                                <td class=\"col-md-2\">Portsmouth</td><!--location-->\r\n                                <th class=\"col-md-1\">VPN</th>\r\n                                <td class=\"col-md-2\">Yes</td><!--vpn-->\r\n                                <th class=\"col-md-3\">Last updated on April 01, 2017</th><!--last updated date-->\r\n                            </tr>\r\n                            <tr>\r\n                                <td colspan=\"3\" class=\"col-md-12\">\r\n                                    <table class=\"table table-striped table-hover input-sm\">\r\n                                        <thead>\r\n                                            <tr>\r\n                                                <th>Skills</th>\r\n                                            </tr>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr><td>Matulog</td></tr>\r\n                                            <tr><td>Kumaen</td></tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n                <!--divider-->\r\n                <!--last item hide-->\r\n                <div class=\"col-md-12\">\r\n                    <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />\r\n                </div>\r\n            </div>\r\n            <div class=\"row\">\r\n                <!--skillset-->\r\n                <div class=\"col-md-12\">\r\n                    <h4>Business Technologies</h4>\r\n                    <br />\r\n                </div>\r\n                <!--details-->\r\n                <!--repeating-->\r\n                <div class=\"col-md-12\">\r\n                    <table class=\"table table-striped table-hover input-sm\">\r\n                        <tbody>\r\n                            <tr>\r\n                                <th class=\"col-md-1\">Name:</th>\r\n                                <td class=\"col-md-2\">Albert Rick Martires</td> <!--assoc name-->\r\n                                <th class=\"col-md-1\">Location:</th>\r\n                                <td class=\"col-md-2\">Manila</td><!--location-->\r\n                                <th class=\"col-md-1\">VPN</th>\r\n                                <td class=\"col-md-2\">No</td><!--vpn-->\r\n                                <th class=\"col-md-3\">Last updated on April 20, 2017</th><!--last updated date-->\r\n                            </tr>\r\n                            <tr>\r\n                                <td colspan=\"3\" class=\"col-md-12\">\r\n                                    <table class=\"table table-striped table-hover input-sm\">\r\n                                        <thead>\r\n                                            <tr>\r\n                                                <th>Skills</th>\r\n                                            </tr>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr><td>Skill 1</td></tr>\r\n                                            <tr><td>Skill 2</td></tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n                <div class=\"col-md-12\">\r\n                    <table class=\"table table-striped table-hover input-sm\">\r\n                        <tbody>\r\n                            <tr>\r\n                                <th class=\"col-md-1\">Name:</th>\r\n                                <td class=\"col-md-2\">Joyce Bermoy</td> <!--assoc name-->\r\n                                <th class=\"col-md-1\">Location:</th>\r\n                                <td class=\"col-md-2\">Manila</td><!--location-->\r\n                                <th class=\"col-md-1\">VPN</th>\r\n                                <td class=\"col-md-2\">No</td><!--vpn-->\r\n                                <th class=\"col-md-3\">Last updated on April 01, 2017</th><!--last updated date-->\r\n                            </tr>\r\n                            <tr>\r\n                                <td colspan=\"3\" class=\"col-md-12\">\r\n                                    <table class=\"table table-striped table-hover input-sm\">\r\n                                        <thead>\r\n                                            <tr>\r\n                                                <th>Skills</th>\r\n                                            </tr>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr><td>Skill 1</td></tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n                <div class=\"col-md-12\">\r\n                    <table class=\"table table-striped table-hover input-sm\">\r\n                        <tbody>\r\n                            <tr>\r\n                                <th class=\"col-md-1\">Name:</th>\r\n                                <td class=\"col-md-2\">Eros Niko Alvarez</td> <!--assoc name-->\r\n                                <th class=\"col-md-1\">Location:</th>\r\n                                <td class=\"col-md-2\">Manila</td><!--location-->\r\n                                <th class=\"col-md-1\">VPN</th>\r\n                                <td class=\"col-md-2\">No</td><!--vpn-->\r\n                                <th class=\"col-md-3\">Last updated on April 01, 2017</th><!--last updated date-->\r\n                            </tr>\r\n                            <tr>\r\n                                <td colspan=\"3\" class=\"col-md-12\">\r\n                                    <table class=\"table table-striped table-hover input-sm\">\r\n                                        <thead>\r\n                                            <tr>\r\n                                                <th>Skills</th>\r\n                                            </tr>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr><td>Skill 1</td></tr>\r\n                                            <tr><td>Skill 2</td></tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n                <div class=\"col-md-12\">\r\n                    <table class=\"table table-striped table-hover input-sm\">\r\n                        <tbody>\r\n                            <tr>\r\n                                <th class=\"col-md-1\">Name:</th>\r\n                                <td class=\"col-md-2\">Federico Sarmiento</td> <!--assoc name-->\r\n                                <th class=\"col-md-1\">Location:</th>\r\n                                <td class=\"col-md-2\">Manila</td><!--location-->\r\n                                <th class=\"col-md-1\">VPN</th>\r\n                                <td class=\"col-md-2\">Yes</td><!--vpn-->\r\n                                <th class=\"col-md-3\">Last updated on April 01, 2017</th><!--last updated date-->\r\n                            </tr>\r\n                            <tr>\r\n                                <td colspan=\"3\" class=\"col-md-12\">\r\n                                    <table class=\"table table-striped table-hover input-sm\">\r\n                                        <thead>\r\n                                            <tr>\r\n                                                <th>Skills</th>\r\n                                            </tr>\r\n                                        </thead>\r\n                                        <tbody>\r\n                                            <tr><td>Skill 1</td></tr>\r\n                                            <tr><td>Skill 2</td></tr>\r\n                                            <tr><td>Skill 3</td></tr>\r\n                                        </tbody>\r\n                                    </table>\r\n                                </td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n                </div>\r\n                <!--divider-->\r\n                <!--last item hide-->\r\n                <div class=\"col-md-12 hidden\">\r\n                    <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-department/search-department.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchDepartmentComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SearchDepartmentComponent = (function () {
+    function SearchDepartmentComponent() {
+    }
+    SearchDepartmentComponent.prototype.ngOnInit = function () {
+    };
+    return SearchDepartmentComponent;
+}());
+SearchDepartmentComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'search-department',
+        template: __webpack_require__("./src/app/mod_search/search-department/search-department.component.html"),
+        styles: [__webpack_require__("./src/app/mod_search/search-department/search-department.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], SearchDepartmentComponent);
+
+//# sourceMappingURL=search-department.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-skillset/search-skillset.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-skillset/search-skillset.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!--repeating-->\r\n<div class=\"row\">\r\n    <!--skillset-->\r\n    <div class=\"col-md-12\">\r\n        <h4>{{skillsetRpt.Skillset}}</h4>\r\n        <br />\r\n    </div>\r\n    <!--details-->\r\n    <div class=\"col-md-12\">\r\n        <table class=\"table table-striped table-hover input-sm\">\r\n            <thead>\r\n                <tr>\r\n                    <th>Associate Name</th>\r\n                    <th>Location</th>\r\n                    <th>Current Department</th>\r\n                    <th>VPN</th>\r\n                    <th>Last Updated</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let x of skillsetRpt.Associates\">\r\n                    <td>{{x.Name}}</td>\r\n                    <td>{{x.Location}}</td>\r\n                    <td>{{x.Department}}</td>\r\n                    <td>{{x.VPN}}</td>\r\n                    <td>{{x.UpdatedOn}}</td>\r\n                </tr>\r\n                \r\n            </tbody>\r\n        </table>\r\n    </div>\r\n    <!--divider-->\r\n    <div class=\"col-md-12\">\r\n        <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/mod_search/search-skillset/search-skillset.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchSkillsetComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SearchSkillsetComponent = (function () {
+    function SearchSkillsetComponent() {
+    }
+    SearchSkillsetComponent.prototype.ngOnInit = function () {
+    };
+    return SearchSkillsetComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Array)
+], SearchSkillsetComponent.prototype, "skillsetRpt", void 0);
+SearchSkillsetComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'search-skillset',
+        template: __webpack_require__("./src/app/mod_search/search-skillset/search-skillset.component.html"),
+        styles: [__webpack_require__("./src/app/mod_search/search-skillset/search-skillset.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], SearchSkillsetComponent);
+
+//# sourceMappingURL=search-skillset.component.js.map
+
+/***/ }),
+
 /***/ "./src/app/mod_search/search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <h3>Search</h3>\r\n            <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />  \r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Search by Location</label>\r\n                    <select class=\"form-control input-sm\">\r\n                        <option *ngFor=\"let x of locations\" [value]=\"x.LocationID\"> {{x.LocationDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"0\"/>&nbsp;Search by Associate(s)\r\n                    </label>\r\n                    <!--<select class=\"form-control input-sm\"></select>-->\r\n                    <ng-select  [multiple]=\"true\"\r\n                    \r\n                        [active]=\"yourVariableName\"\r\n                        [allowClear]=\"true\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=0\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        (selected)=\"selected($event)\"\r\n                        (removed)=\"removed($event)\"\r\n                        placeholder=\"No Associate selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"1\"/>&nbsp;Search by Skillset(s)\r\n                    </label>\r\n                    <ng-select  [multiple]=\"true\"\r\n                        [allowClear]=\"true\"\r\n                        [active]=\"yourVariableName\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=1\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        (selected)=\"selected($event)\"\r\n                        (removed)=\"removed($event)\"\r\n                        placeholder=\"No Skills selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"2\"/>&nbsp;Search by Department(s)\r\n                    </label>\r\n                    <ng-select  [multiple]=\"true\"\r\n                    [allowClear]=\"true\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=2\"\r\n                        [active]=\"yourVariableName\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        (selected)=\"selected($event)\"\r\n                        (removed)=\"removed($event)\"\r\n                        placeholder=\"No Departments selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date From</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date To</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <a href=\"#\" class=\"btn btn-primary btn-sm pull-right\"><i class=\"fa fa-send\"></i>&nbsp;View Report</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-9\">\r\n            <!--report content here-->\r\n            <!--<div class=\"report-content\"></div>-->\r\n            <div style=\"width: 300px; margin-bottom: 20px;\">\r\n            <h3>Select multiple cities</h3>\r\n            \r\n            <pre>{{itemsToString(value)}}</pre>\r\n            <div>\r\n                \r\n            </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <h3>Search</h3>\r\n            <hr style=\"border-bottom: 1px solid #2196F3; margin-left: -15px; margin-right: -15px; \" />  \r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Search by Location</label>\r\n                    <select class=\"form-control input-sm\" (change)=\"getItems()\" [(ngModel)]=\"selectedLocation\">\r\n                        <option value=\"-1\" disabled selected> Select Location </option>\r\n                        <option *ngFor=\"let x of locations\" [value]=\"x.LocationID\"> {{x.LocationDescr}} </option>\r\n                    </select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"0\"/>&nbsp;Search by Associate(s)\r\n                    </label>\r\n                    <!--<select class=\"form-control input-sm\"></select>-->\r\n                    <ng-select  [multiple]=\"true\"\r\n                    \r\n                        [active]=\"yourVariableName\"\r\n                        [allowClear]=\"true\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=0\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        \r\n                        placeholder=\"No Associate selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"1\"/>&nbsp;Search by Skillset(s)\r\n                    </label>\r\n                    <ng-select  [multiple]=\"true\"\r\n                        [allowClear]=\"true\"\r\n                        [active]=\"yourVariableName\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=1\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        \r\n                        placeholder=\"No Skills selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">\r\n                        <input type=\"radio\" [(ngModel)]=\"radioSelect\" (change)=\"yourVariableName=[]; getItems();\" name=\"search_rdb\" [value]=\"2\"/>&nbsp;Search by Department(s)\r\n                    </label>\r\n                    <ng-select  [multiple]=\"true\"\r\n                    [allowClear]=\"true\"\r\n                        [items]=\"items\"\r\n                        [disabled]=\"radioSelect!=2\"\r\n                        [active]=\"yourVariableName\"\r\n                        (data)=\"refreshValue($event)\"\r\n                        placeholder=\"No Departments selected\">\r\n                    </ng-select>\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date From</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <label class=\"control-label\">Date To</label>\r\n                    <input type=\"text\" class=\"form-control input-sm\" />\r\n                </div>\r\n            </div>\r\n            <br />\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <a (click)=\"getResult()\" class=\"btn btn-primary btn-sm pull-right\"><i class=\"fa fa-send\"></i>&nbsp;View Report</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-9\" id=\"assocRpt\" #assocRpt>\r\n            <!--report content here-->\r\n            <!--<div class=\"report-content\"></div>-->\r\n            <div class=\"col-md-12\">\r\n                <div class=\"pull-right\">\r\n                    <div class=\"btn-group\">\r\n                        <a class=\"btn btn-primary btn-sm\" (click)=\"samp()\" title=\"Export to Excel\"><i class=\"fa fa-file-excel-o\"></i></a>\r\n                        <!--<a class=\"btn btn-primary btn-sm\"></a>-->\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div *ngIf=\"radioSelect==0\">\r\n                <search-associate [associate]=\"x\" *ngFor=\"let x of associateRpt\"></search-associate>\r\n            </div>\r\n            <div *ngIf=\"radioSelect==1\" >\r\n                <!--<search-associate [associate]=\"x\" *ngFor=\"let x of associateRpt\"></search-associate>-->\r\n                <search-skillset [skillsetRpt]=\"x\" *ngFor=\"let x of skillsetRpt\"></search-skillset>\r\n            </div>\r\n            <div *ngIf=\"radioSelect==2\" >\r\n                <search-department></search-department>\r\n                <!--<search-associate [associate]=\"x\" *ngFor=\"let x of associateRpt\"></search-associate>-->\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2942,6 +3999,8 @@ module.exports = "<div class=\"col-md-12\">\r\n    <div class=\"row\">\r\n      
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__ = __webpack_require__("./src/app/com_services/location.svc.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__ = __webpack_require__("./src/app/com_services/set_user.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__export_exportassociate_reports__ = __webpack_require__("./src/app/mod_search/export/exportassociate.reports.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__export_exportskillset_reports__ = __webpack_require__("./src/app/mod_search/export/exportskillset.reports.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2994,14 +4053,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+
+var jsPDF = __webpack_require__("./node_modules/jspdf/dist/jspdf.debug.js");
 var SearchComponent = (function () {
-    function SearchComponent(associateSvc, departmentSvc, locationSvc, skillsetSvc, setUserSvc) {
+    function SearchComponent(associateSvc, departmentSvc, locationSvc, skillsetSvc, setUserSvc, associateReportSvc, skillsetReportSvc) {
         this.associateSvc = associateSvc;
         this.departmentSvc = departmentSvc;
         this.locationSvc = locationSvc;
         this.skillsetSvc = skillsetSvc;
         this.setUserSvc = setUserSvc;
+        this.associateReportSvc = associateReportSvc;
+        this.skillsetReportSvc = skillsetReportSvc;
         this.radioSelect = 0;
+        this.selectedLocation = -1;
         this.yourVariableName = [];
         //initial collection
         this.skillsets = [];
@@ -3009,21 +4074,24 @@ var SearchComponent = (function () {
         this.departments = [];
         this.associates = [];
         this.set_Users = [];
-        //ng2-select items
-        this.associateItems = []; //Array<string>=[];
+        this.associateRpt = [];
+        this.skillsetRpt = [];
+        //ng2 select variables
         this.items = [];
-        //public items:Array<string>;
-        // public items:Array<string> = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
-        //   'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
-        //   'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin', 'Düsseldorf',
-        //   'Essen', 'Frankfurt', 'Genoa', 'Glasgow', 'Gothenburg', 'Hamburg', 'Hannover',
-        //   'Helsinki', 'Leeds', 'Leipzig', 'Lisbon', 'Łódź', 'London', 'Kraków', 'Madrid',
-        //   'Málaga', 'Manchester', 'Marseille', 'Milan', 'Munich', 'Naples', 'Palermo',
-        //   'Paris', 'Poznań', 'Prague', 'Riga', 'Rome', 'Rotterdam', 'Seville', 'Sheffield',
-        //   'Sofia', 'Stockholm', 'Stuttgart', 'The Hague', 'Turin', 'Valencia', 'Vienna',
-        //   'Vilnius', 'Warsaw', 'Wrocław', 'Zagreb', 'Zaragoza'];
-        this.value = ['Athens'];
+        this.selectedItems = [];
     }
+    SearchComponent.prototype.samp = function () {
+        // let doc = new jsPDF();
+        // doc.text("Hello", 20, 20);
+        // doc.save('table.pdf');
+        var pdf = new jsPDF();
+        var options = {
+            pagesplit: true, background: "#FFFFFF"
+        };
+        pdf.addHTML(this.el.nativeElement, options, function () {
+            pdf.save("test.pdf");
+        });
+    };
     SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.getDependencies().then(function () {
@@ -3031,7 +4099,58 @@ var SearchComponent = (function () {
                 _this.getItems();
             });
         });
-        //this.removeInactive();
+    };
+    SearchComponent.prototype.getResult = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var i, i;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.radioSelect == 0)) return [3 /*break*/, 5];
+                        this.associateRpt = [];
+                        i = 0;
+                        _a.label = 1;
+                    case 1:
+                        if (!(i < this.selectedItems.length)) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.associateReportSvc.getAssociateReport(this.selectedItems[i].id)
+                                .then(function (a) {
+                                //console.log(a);
+                                if (a != null) {
+                                    _this.associateRpt.push(a);
+                                }
+                            })];
+                    case 2:
+                        _a.sent();
+                        _a.label = 3;
+                    case 3:
+                        i++;
+                        return [3 /*break*/, 1];
+                    case 4:
+                        console.log(this.associateRpt);
+                        return [3 /*break*/, 10];
+                    case 5:
+                        if (!(this.radioSelect == 1)) return [3 /*break*/, 10];
+                        this.skillsetRpt = [];
+                        i = 0;
+                        _a.label = 6;
+                    case 6:
+                        if (!(i < this.selectedItems.length)) return [3 /*break*/, 9];
+                        return [4 /*yield*/, this.skillsetReportSvc.getSkillsetReport(this.selectedItems[i].id)
+                                .then(function (a) { return _this.skillsetRpt.push(a); })];
+                    case 7:
+                        _a.sent();
+                        _a.label = 8;
+                    case 8:
+                        i++;
+                        return [3 /*break*/, 6];
+                    case 9:
+                        console.log(this.skillsetRpt);
+                        return [3 /*break*/, 10];
+                    case 10: return [2 /*return*/];
+                }
+            });
+        });
     };
     SearchComponent.prototype.getDependencies = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -3040,17 +4159,17 @@ var SearchComponent = (function () {
                 switch (_f.label) {
                     case 0:
                         _a = this;
-                        return [4 /*yield*/, this.locationSvc.getLocations()];
-                    case 1:
-                        _a.locations = _f.sent();
-                        _b = this;
-                        return [4 /*yield*/, this.departmentSvc.getDepartments()];
-                    case 2:
-                        _b.departments = _f.sent();
-                        _c = this;
                         return [4 /*yield*/, this.associateSvc.getAssociates()];
+                    case 1:
+                        _a.associates = _f.sent();
+                        _b = this;
+                        return [4 /*yield*/, this.locationSvc.getLocations()];
+                    case 2:
+                        _b.locations = _f.sent();
+                        _c = this;
+                        return [4 /*yield*/, this.departmentSvc.getDepartments()];
                     case 3:
-                        _c.associates = _f.sent();
+                        _c.departments = _f.sent();
                         _d = this;
                         return [4 /*yield*/, this.setUserSvc.getSet_Users()];
                     case 4:
@@ -3093,18 +4212,23 @@ var SearchComponent = (function () {
     };
     SearchComponent.prototype.getFullName = function (username) {
         var user = this.set_Users.find(function (x) { return x.user_name == username; });
-        //console.log(user);
         return user == null ? null : user.user_first_name + ' ' + user.user_last_name;
     };
     SearchComponent.prototype.getItems = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var i, fullName, i, i;
+            var _this = this;
+            var associates, i, fullName, i, i;
             return __generator(this, function (_a) {
                 this.items = [];
+                this.yourVariableName = [];
+                this.associateRpt = [];
+                this.skillsetRpt = [];
+                this.selectedItems = [];
                 if (this.radioSelect == 0) {
-                    for (i = 0; i < this.associates.length; i++) {
-                        fullName = this.getFullName(this.associates[i].UserName);
-                        this.items.push({ 'id': this.associates[i].AssociateID.toString(), 'text': this.getFullName(this.associates[i].UserName) });
+                    associates = this.associates.filter(function (x) { return x.LocationID == _this.selectedLocation; });
+                    for (i = 0; i < associates.length; i++) {
+                        fullName = this.getFullName(associates[i].UserName);
+                        this.items.push({ 'id': associates[i].AssociateID.toString(), 'text': this.getFullName(associates[i].UserName) });
                     }
                 }
                 else if (this.radioSelect == 1) {
@@ -3121,33 +4245,24 @@ var SearchComponent = (function () {
             });
         });
     };
-    SearchComponent.prototype.selected = function (value) {
-        console.log('Selected value is: ', value);
-    };
-    SearchComponent.prototype.removed = function (value) {
-        console.log('Removed value is: ', value);
-    };
     SearchComponent.prototype.refreshValue = function (value) {
-        this.value = value;
-    };
-    SearchComponent.prototype.itemsToString = function (value) {
-        if (value === void 0) { value = []; }
-        return value
-            .map(function (item) {
-            return item.text;
-        }).join(',');
+        this.selectedItems = value;
     };
     return SearchComponent;
 }());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('assocRpt'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
+], SearchComponent.prototype, "el", void 0);
 SearchComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'search',
         template: __webpack_require__("./src/app/mod_search/search.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__com_services_associate_svc__["a" /* AssociateSvc */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__com_services_department_svc__["a" /* DepartmentSvc */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__com_services_location_svc__["a" /* LocationSvc */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__com_services_skillset_svc__["a" /* SkillsetSvc */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__com_services_set_user_svc__["a" /* Set_UserSvc */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__export_exportassociate_reports__["a" /* ExportAssociateReport */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__export_exportassociate_reports__["a" /* ExportAssociateReport */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__export_exportskillset_reports__["a" /* ExportSkillsetReport */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__export_exportskillset_reports__["a" /* ExportSkillsetReport */]) === "function" && _h || Object])
 ], SearchComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f, _g, _h;
 //# sourceMappingURL=search.component.js.map
 
 /***/ }),
@@ -3165,12 +4280,18 @@ var _a, _b, _c, _d, _e;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_select__ = __webpack_require__("./node_modules/ng2-select/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ng2_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ng2_select__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__search_component__ = __webpack_require__("./src/app/mod_search/search.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__com_services_location_svc__ = __webpack_require__("./src/app/com_services/location.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__search_associate_search_associate_component__ = __webpack_require__("./src/app/mod_search/search-associate/search-associate.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__search_associate_department_skills_department_skills_component__ = __webpack_require__("./src/app/mod_search/search-associate/department-skills/department-skills.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__search_skillset_search_skillset_component__ = __webpack_require__("./src/app/mod_search/search-skillset/search-skillset.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__search_department_search_department_component__ = __webpack_require__("./src/app/mod_search/search-department/search-department.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__com_services_location_svc__ = __webpack_require__("./src/app/com_services/location.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__com_services_department_svc__ = __webpack_require__("./src/app/com_services/department.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__com_services_skillset_svc__ = __webpack_require__("./src/app/com_services/skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__com_services_associate_svc__ = __webpack_require__("./src/app/com_services/associate.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__com_services_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__com_services_assoc_dept_skillset_svc__ = __webpack_require__("./src/app/com_services/assoc_dept_skillset.svc.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__export_exportassociate_reports__ = __webpack_require__("./src/app/mod_search/export/exportassociate.reports.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__export_exportskillset_reports__ = __webpack_require__("./src/app/mod_search/export/exportskillset.reports.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3187,7 +4308,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 //components
 
+
+
+
+
 //services
+
+
 
 
 
@@ -3204,6 +4331,10 @@ SearchModule = __decorate([
         //components area
         declarations: [
             __WEBPACK_IMPORTED_MODULE_7__search_component__["a" /* SearchComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__search_associate_search_associate_component__["a" /* SearchAssociateComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__search_associate_department_skills_department_skills_component__["a" /* DepartmentSkillsComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__search_skillset_search_skillset_component__["a" /* SearchSkillsetComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__search_department_search_department_component__["a" /* SearchDepartmentComponent */],
         ],
         //module area
         imports: [
@@ -3213,8 +4344,10 @@ SearchModule = __decorate([
         ],
         //services area
         providers: [
-            __WEBPACK_IMPORTED_MODULE_8__com_services_location_svc__["a" /* LocationSvc */], __WEBPACK_IMPORTED_MODULE_9__com_services_department_svc__["a" /* DepartmentSvc */], __WEBPACK_IMPORTED_MODULE_10__com_services_skillset_svc__["a" /* SkillsetSvc */], __WEBPACK_IMPORTED_MODULE_11__com_services_associate_svc__["a" /* AssociateSvc */],
-            __WEBPACK_IMPORTED_MODULE_12__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */], __WEBPACK_IMPORTED_MODULE_13__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */]
+            __WEBPACK_IMPORTED_MODULE_12__com_services_location_svc__["a" /* LocationSvc */], __WEBPACK_IMPORTED_MODULE_13__com_services_department_svc__["a" /* DepartmentSvc */], __WEBPACK_IMPORTED_MODULE_14__com_services_skillset_svc__["a" /* SkillsetSvc */], __WEBPACK_IMPORTED_MODULE_15__com_services_associate_svc__["a" /* AssociateSvc */],
+            __WEBPACK_IMPORTED_MODULE_16__com_services_dept_skillset_svc__["a" /* DepartmentSkillsetsSvc */], __WEBPACK_IMPORTED_MODULE_17__com_services_assoc_dept_skillset_svc__["a" /* AssociateDepartmentSkillsetsSvc */],
+            //reports
+            __WEBPACK_IMPORTED_MODULE_18__export_exportassociate_reports__["a" /* ExportAssociateReport */], __WEBPACK_IMPORTED_MODULE_19__export_exportskillset_reports__["a" /* ExportSkillsetReport */]
         ],
         //components to be shared and used using selector
         exports: [
@@ -3677,7 +4810,7 @@ var SkillSetComponent = (function () {
                                     case 1:
                                         tempAssDeptSkl = _c.sent();
                                         if (!!tempAssDeptSkl) return [3 /*break*/, 6];
-                                        return [4 /*yield*/, new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["g" /* AssociateDepartmentSkillset */]()];
+                                        return [4 /*yield*/, new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["k" /* AssociateDepartmentSkillset */]()];
                                     case 2:
                                         assDptSkl = _c.sent();
                                         _a = assDptSkl;
@@ -3801,7 +4934,7 @@ var SkillSetComponent = (function () {
         this.departmentSkillsetDBOs = [];
         this.skillsetCheck = {};
         this.dateToday = new Date();
-        this.associate = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["f" /* Associate */]();
+        this.associate = new __WEBPACK_IMPORTED_MODULE_2__com_entities_entities__["j" /* Associate */]();
         this.runFunctions();
     };
     return SkillSetComponent;
